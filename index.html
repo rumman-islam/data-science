@@ -1104,7 +1104,7 @@
           <h1 class="slide-title">Breast Cancer Diagnosis Using Logistic Regression & ML</h1>
           <p class="slide-subtitle">Comprehensive Preprocessing, Exploratory Data Analysis (EDA), and Advanced Predictive Mining</p>
         </div>
-        <div class="slide-num-indicator">01 / 13</div>
+        <div class="slide-num-indicator">01 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-4" style="margin-bottom: 10px;">
@@ -1156,7 +1156,7 @@
           <h2 class="slide-title">Problem Statement & Research Objectives</h2>
           <p class="slide-subtitle">Bridging computational intelligence with pathological decision support</p>
         </div>
-        <div class="slide-num-indicator">02 / 13</div>
+        <div class="slide-num-indicator">02 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1190,7 +1190,7 @@
           <h2 class="slide-title">Dataset Architecture & Class Distribution</h2>
           <p class="slide-subtitle">Fine Needle Aspirate (FNA) digitized nuclear features (Kaggle)</p>
         </div>
-        <div class="slide-num-indicator">03 / 13</div>
+        <div class="slide-num-indicator">03 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1256,73 +1256,15 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: Preprocessing & Standardization -->
-    <section class="slide" id="slide-3">
-      <div class="slide-header">
-        <div>
-          <span class="slide-badge"><i class="fa-solid fa-filter"></i> Data Quality Pipeline</span>
-          <h2 class="slide-title">Data Preprocessing & Feature Standardization</h2>
-          <p class="slide-subtitle">Preparing raw clinical measurements for machine learning convergence</p>
-        </div>
-        <div class="slide-num-indicator">04 / 13</div>
-      </div>
-      <div class="slide-body">
-        <div class="grid-2">
-          <div class="code-box">
-            <div class="code-box-header">
-              <span><i class="fa-brands fa-python"></i> preprocessing_pipeline.py</span>
-              <span>Scikit-learn / Pandas</span>
-            </div>
-            <pre><code><span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
-<span class="code-keyword">from</span> sklearn.preprocessing <span class="code-keyword">import</span> StandardScaler, LabelEncoder
-<span class="code-keyword">from</span> sklearn.model_selection <span class="code-keyword">import</span> train_test_split
-
-<span class="code-comment"># 1. Load & Augment Dataset to 1,138 rows</span>
-raw_df = pd.read_csv(<span class="code-str">'breast-cancer.csv'</span>)
-df = pd.concat([raw_df, raw_df], ignore_index=<span class="code-num">True</span>)
-
-<span class="code-comment"># 2. Null Verification (Total: 0 null entries)</span>
-assert df.isnull().sum().sum() == <span class="code-num">0</span>
-
-<span class="code-comment"># 3. Categorical Label Encoding (M=1, B=0)</span>
-le = LabelEncoder()
-df[<span class="code-str">'Diagnosis_Encoded'</span>] = le.fit_transform(df[<span class="code-str">'diagnosis'</span>])
-
-<span class="code-comment"># 4. Feature Standardization (Z-score Scaling)</span>
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_train)</code></pre>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="card card-accent-cyan">
-              <div class="card-title"><i class="fa-solid fa-scale-balanced"></i> Why StandardScaler is Crucial</div>
-              <p class="card-p">
-                Measurements exhibit vast scale disparities: `smoothness_mean` spans $\approx [0.05, 0.16]$, while `area_mean` spans $[143, 2501]$. Without Z-score normalization ($\mu=0, \sigma=1$), gradient descent in Logistic Regression becomes erratic and K-Means Euclidean distances become entirely dominated by area values.
-              </p>
-            </div>
-
-            <div class="card card-accent-emerald">
-              <div class="card-title"><i class="fa-solid fa-shield-halved"></i> Data Integrity Check</div>
-              <p class="card-p">
-                • <strong>Missing Data:</strong> 0 null entries across all 31 features.<br>
-                • <strong>Target Variable:</strong> Clean binary split ($y \in \{0, 1\}$).<br>
-                • <strong>Stratified Split:</strong> 80% Training (910 samples) vs 20% Test (228 samples) with seed consistency (`random_state=42`).
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SLIDE 5: EDA - Distributions & Outliers -->
-    <section class="slide" id="slide-4">
+    <section class="slide" id="slide-3">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-chart-column"></i> Exploratory Data Analysis</span>
           <h2 class="slide-title">Exploratory Data Analysis: Distributions & Outliers</h2>
           <p class="slide-subtitle">Morphometric variance between benign and malignant cell nuclei</p>
         </div>
-        <div class="slide-num-indicator">05 / 13</div>
+        <div class="slide-num-indicator">04 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1349,14 +1291,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 6: Correlation & Multicollinearity -->
-    <section class="slide" id="slide-5">
+    <section class="slide" id="slide-4">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-diagram-project"></i> Feature Interdependence</span>
           <h2 class="slide-title">Correlation Heatmap & Multicollinearity Analysis</h2>
           <p class="slide-subtitle">Detecting mathematical collinearity to prevent regression instability</p>
         </div>
-        <div class="slide-num-indicator">06 / 13</div>
+        <div class="slide-num-indicator">05 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1389,14 +1331,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 7: Morphological Profiling -->
-    <section class="slide" id="slide-6">
+    <section class="slide" id="slide-5">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-chart-line"></i> Multivariate Patterns</span>
           <h2 class="slide-title">Morphological Profiling & Feature Signatures</h2>
           <p class="slide-subtitle">Comparative attribute envelopes of malignant versus benign cells</p>
         </div>
-        <div class="slide-num-indicator">07 / 13</div>
+        <div class="slide-num-indicator">06 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1423,14 +1365,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 8: Feature Selection Strategy -->
-    <section class="slide" id="slide-7">
+    <section class="slide" id="slide-6">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-sliders"></i> Dimensionality Reduction</span>
           <h2 class="slide-title">Feature Selection Strategy for Logistic Regression</h2>
           <p class="slide-subtitle">Curating an optimal, parsimonious set of 7 non-collinear features</p>
         </div>
-        <div class="slide-num-indicator">08 / 13</div>
+        <div class="slide-num-indicator">07 / 12</div>
       </div>
       <div class="slide-body">
         <div class="custom-table-wrapper">
@@ -1523,14 +1465,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 10: Model Evaluation & Confusion Matrix -->
-    <section class="slide" id="slide-8">
+    <section class="slide" id="slide-7">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-chart-pie"></i> Empirical Validation</span>
           <h2 class="slide-title">Model Evaluation: Confusion Matrix & Metrics</h2>
           <p class="slide-subtitle">Rigorous test set evaluation on 228 unseen clinical cases (20% Split)</p>
         </div>
-        <div class="slide-num-indicator">09 / 13</div>
+        <div class="slide-num-indicator">08 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1587,14 +1529,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 11: ROC Curve & AUC -->
-    <section class="slide" id="slide-9">
+    <section class="slide" id="slide-8">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-wave-square"></i> Threshold-Free Discrimination</span>
           <h2 class="slide-title">ROC Curve & AUC-ROC Analysis</h2>
           <p class="slide-subtitle">Near-perfect discriminatory capability across all decision thresholds</p>
         </div>
-        <div class="slide-num-indicator">10 / 13</div>
+        <div class="slide-num-indicator">09 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1625,14 +1567,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 12: Benchmark Comparison & Coefficients -->
-    <section class="slide" id="slide-10">
+    <section class="slide" id="slide-9">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-ranking-star"></i> Algorithm Comparison</span>
           <h2 class="slide-title">Model Comparison & Feature Importance</h2>
           <p class="slide-subtitle">Benchmarking against Tree ensembles & examining regression coefficients</p>
         </div>
-        <div class="slide-num-indicator">11 / 13</div>
+        <div class="slide-num-indicator">10 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1692,14 +1634,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 13: Clustering & Predictive Regression -->
-    <section class="slide" id="slide-11">
+    <section class="slide" id="slide-10">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-cubes"></i> Advanced Mining</span>
           <h2 class="slide-title">Unsupervised K-Means & Multiple Linear Regression</h2>
           <p class="slide-subtitle">Cluster validation via 2D PCA & continuous perimeter estimation</p>
         </div>
-        <div class="slide-num-indicator">12 / 13</div>
+        <div class="slide-num-indicator">11 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-3">
@@ -1732,14 +1674,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 14: Conclusions & Viva Defense -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-11">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-graduation-cap"></i> Defense Summary</span>
           <h2 class="slide-title">Conclusions, Limitations & Future Roadmap</h2>
           <p class="slide-subtitle">Summary for viva defense and clinical translation roadmap</p>
         </div>
-        <div class="slide-num-indicator">13 / 13</div>
+        <div class="slide-num-indicator">12 / 12</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1959,7 +1901,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </button>
     
     <div class="dock-counter">
-      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">13</span>
+      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">12</span>
     </div>
 
     <button class="dock-btn" onclick="nextSlide()" title="Next slide (Right Arrow / Space)">
