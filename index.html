@@ -1104,7 +1104,7 @@
           <h1 class="slide-title">Breast Cancer Diagnosis Using Logistic Regression & ML</h1>
           <p class="slide-subtitle">Comprehensive Preprocessing, Exploratory Data Analysis (EDA), and Advanced Predictive Mining</p>
         </div>
-        <div class="slide-num-indicator">01 / 14</div>
+        <div class="slide-num-indicator">01 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-4" style="margin-bottom: 10px;">
@@ -1156,7 +1156,7 @@
           <h2 class="slide-title">Problem Statement & Research Objectives</h2>
           <p class="slide-subtitle">Bridging computational intelligence with pathological decision support</p>
         </div>
-        <div class="slide-num-indicator">02 / 14</div>
+        <div class="slide-num-indicator">02 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1190,7 +1190,7 @@
           <h2 class="slide-title">Dataset Architecture & Class Distribution</h2>
           <p class="slide-subtitle">Fine Needle Aspirate (FNA) digitized nuclear features (Kaggle)</p>
         </div>
-        <div class="slide-num-indicator">03 / 14</div>
+        <div class="slide-num-indicator">03 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1264,7 +1264,7 @@
           <h2 class="slide-title">Data Preprocessing & Feature Standardization</h2>
           <p class="slide-subtitle">Preparing raw clinical measurements for machine learning convergence</p>
         </div>
-        <div class="slide-num-indicator">04 / 14</div>
+        <div class="slide-num-indicator">04 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1322,7 +1322,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
           <h2 class="slide-title">Exploratory Data Analysis: Distributions & Outliers</h2>
           <p class="slide-subtitle">Morphometric variance between benign and malignant cell nuclei</p>
         </div>
-        <div class="slide-num-indicator">05 / 14</div>
+        <div class="slide-num-indicator">05 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1356,7 +1356,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
           <h2 class="slide-title">Correlation Heatmap & Multicollinearity Analysis</h2>
           <p class="slide-subtitle">Detecting mathematical collinearity to prevent regression instability</p>
         </div>
-        <div class="slide-num-indicator">06 / 14</div>
+        <div class="slide-num-indicator">06 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1396,7 +1396,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
           <h2 class="slide-title">Morphological Profiling & Feature Signatures</h2>
           <p class="slide-subtitle">Comparative attribute envelopes of malignant versus benign cells</p>
         </div>
-        <div class="slide-num-indicator">07 / 14</div>
+        <div class="slide-num-indicator">07 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1430,7 +1430,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
           <h2 class="slide-title">Feature Selection Strategy for Logistic Regression</h2>
           <p class="slide-subtitle">Curating an optimal, parsimonious set of 7 non-collinear features</p>
         </div>
-        <div class="slide-num-indicator">08 / 14</div>
+        <div class="slide-num-indicator">08 / 13</div>
       </div>
       <div class="slide-body">
         <div class="custom-table-wrapper">
@@ -1522,64 +1522,15 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
       </div>
     </section>
 
-    <!-- SLIDE 9: Logistic Regression Mathematical Framework -->
-    <section class="slide" id="slide-8">
-      <div class="slide-header">
-        <div>
-          <span class="slide-badge"><i class="fa-solid fa-calculator"></i> Mathematical Foundation</span>
-          <h2 class="slide-title">Logistic Regression: Formulation & Decision Theory</h2>
-          <p class="slide-subtitle">Probabilistic classification through the Sigmoid activation function</p>
-        </div>
-        <div class="slide-num-indicator">09 / 14</div>
-      </div>
-      <div class="slide-body">
-        <div class="grid-2">
-          <div class="card card-accent-cyan">
-            <div class="card-title"><i class="fa-solid fa-square-root-variable"></i> Sigmoid Probability Function</div>
-            <p class="card-p">
-              The Logistic function maps the linear combination of weighted features $z$ into a calibrated probability $[0, 1]$:
-            </p>
-            <div style="background: #090e1a; padding: 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 1.05rem; color: var(--cyan); margin: 12px 0; text-align: center; border: 1px solid var(--border-subtle);">
-              P(Y = 1 | X) = 1 / (1 + e<sup>-z</sup>)
-            </div>
-            <p class="card-p">
-              where the logit $z$ is parameterized by coefficients:
-            </p>
-            <div style="background: #090e1a; padding: 10px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; color: #94a3b8; text-align: center; border: 1px solid var(--border-subtle);">
-              z = β₀ + β₁(radius) + β₂(texture) + ... + β₇(symmetry)
-            </div>
-          </div>
-
-          <div class="card card-accent-emerald">
-            <div class="card-title"><i class="fa-solid fa-stethoscope"></i> Clinical Decision Thresholding</div>
-            <p class="card-p">
-              • <strong>Default Boundary ($T = 0.50$):</strong><br>
-              &nbsp;&nbsp;If $P(\text{Malignant}|X) \ge 0.50 \implies$ <strong>Malignant</strong><br>
-              &nbsp;&nbsp;If $P(\text{Malignant}|X) < 0.50 \implies$ <strong>Benign</strong><br><br>
-              • <strong>Risk-Averse Clinical Tuning ($T = 0.35$):</strong><br>
-              In high-stakes oncology screening, lowering the threshold to 0.35 drastically cuts false negatives to nearly zero, ensuring suspected cases receive immediate follow-up biopsy review.
-            </p>
-          </div>
-        </div>
-
-        <div class="card card-accent-indigo" style="margin-top: 10px;">
-          <div class="card-title"><i class="fa-solid fa-circle-question"></i> Why Not Deep Learning Black-Box?</div>
-          <p class="card-p">
-            In medical diagnostics, algorithmic explainability is legally and ethically paramount. Each $\beta$ coefficient corresponds directly to an odds ratio $\exp(\beta_i)$, enabling pathologists to verify the biological rationale behind every prediction.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- SLIDE 10: Model Evaluation & Confusion Matrix -->
-    <section class="slide" id="slide-9">
+    <section class="slide" id="slide-8">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-chart-pie"></i> Empirical Validation</span>
           <h2 class="slide-title">Model Evaluation: Confusion Matrix & Metrics</h2>
           <p class="slide-subtitle">Rigorous test set evaluation on 228 unseen clinical cases (20% Split)</p>
         </div>
-        <div class="slide-num-indicator">10 / 14</div>
+        <div class="slide-num-indicator">09 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1636,14 +1587,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 11: ROC Curve & AUC -->
-    <section class="slide" id="slide-10">
+    <section class="slide" id="slide-9">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-wave-square"></i> Threshold-Free Discrimination</span>
           <h2 class="slide-title">ROC Curve & AUC-ROC Analysis</h2>
           <p class="slide-subtitle">Near-perfect discriminatory capability across all decision thresholds</p>
         </div>
-        <div class="slide-num-indicator">11 / 14</div>
+        <div class="slide-num-indicator">10 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1674,14 +1625,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 12: Benchmark Comparison & Coefficients -->
-    <section class="slide" id="slide-11">
+    <section class="slide" id="slide-10">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-ranking-star"></i> Algorithm Comparison</span>
           <h2 class="slide-title">Model Comparison & Feature Importance</h2>
           <p class="slide-subtitle">Benchmarking against Tree ensembles & examining regression coefficients</p>
         </div>
-        <div class="slide-num-indicator">12 / 14</div>
+        <div class="slide-num-indicator">11 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -1741,14 +1692,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 13: Clustering & Predictive Regression -->
-    <section class="slide" id="slide-12">
+    <section class="slide" id="slide-11">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-cubes"></i> Advanced Mining</span>
           <h2 class="slide-title">Unsupervised K-Means & Multiple Linear Regression</h2>
           <p class="slide-subtitle">Cluster validation via 2D PCA & continuous perimeter estimation</p>
         </div>
-        <div class="slide-num-indicator">13 / 14</div>
+        <div class="slide-num-indicator">12 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-3">
@@ -1781,14 +1732,14 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </section>
 
     <!-- SLIDE 14: Conclusions & Viva Defense -->
-    <section class="slide" id="slide-13">
+    <section class="slide" id="slide-12">
       <div class="slide-header">
         <div>
           <span class="slide-badge"><i class="fa-solid fa-graduation-cap"></i> Defense Summary</span>
           <h2 class="slide-title">Conclusions, Limitations & Future Roadmap</h2>
           <p class="slide-subtitle">Summary for viva defense and clinical translation roadmap</p>
         </div>
-        <div class="slide-num-indicator">14 / 14</div>
+        <div class="slide-num-indicator">13 / 13</div>
       </div>
       <div class="slide-body">
         <div class="grid-2">
@@ -2008,7 +1959,7 @@ X_scaled = scaler.fit_transform(X_train)</code></pre>
     </button>
     
     <div class="dock-counter">
-      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">14</span>
+      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">13</span>
     </div>
 
     <button class="dock-btn" onclick="nextSlide()" title="Next slide (Right Arrow / Space)">
