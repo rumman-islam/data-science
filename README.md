@@ -20,7 +20,7 @@ The repository includes a modern, responsive web presentation deck and research 
   - **Slide Deck Mode:** Fullscreen interactive keynote presentation with keyboard navigation (`←` / `→` / `Space`), progress tracking, fullscreen toggle (`F`), slide overview grid (`O`), and presenter rehearsal stopwatch.
   - **Continuous Report Mode:** Detailed executive dashboard with high-resolution visual inspectors.
 - **Live Machine Learning Simulator:** Interactive Logistic Regression inference calculator testing how variations in `radius_mean`, `texture_mean`, `concave points_mean`, and `compactness_mean` shift the calculated malignancy probability in real-time.
-- **Viva Voce Defense Accordion:** Bilingual (English & বাংলা) answers to top examiner questions.
+- **Viva Voce Defense Guide:** Full 20 top defense questions and answers available in [`VIVA_QUESTIONS_ANSWERS.md`](VIVA_QUESTIONS_ANSWERS.md).
 
 > **To view the presentation:** Simply open [`index.html`](index.html) in any modern web browser or host it via GitHub Pages.
 

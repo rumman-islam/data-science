@@ -870,41 +870,7 @@
       transition: width 0.3s ease;
     }
 
-    .qa-accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
 
-    .qa-item {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .qa-header {
-      padding: 14px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--clinical-navy);
-    }
-
-    .qa-content {
-      padding: 0 18px 16px;
-      font-size: 0.88rem;
-      color: var(--clinical-slate);
-      line-height: 1.6;
-      border-top: 1px solid var(--border-subtle);
-      display: none;
-    }
-
-    .qa-item.open .qa-content { display: block; padding-top: 14px; }
-    .qa-item.open .qa-header i { transform: rotate(180deg); color: var(--clinical-blue); }
 
     /* Responsive */
     @media (max-width: 1024px) {
@@ -1462,48 +1428,7 @@
       </div>
     </div>
 
-    <!-- Viva Defense Q&A Flashcards Accordion -->
-    <div class="clinical-card" style="margin-bottom: 50px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-          <span class="clinical-badge"><i class="fa-solid fa-chalkboard-user"></i> Oral Examination Guide</span>
-          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--clinical-navy);">Viva Voce Technical Defense Q&A (বাংলায় ব্যাখ্যা)</h3>
-          <p style="color: var(--clinical-muted); font-size: 0.88rem;">Key defense responses for clinical and data science examiners</p>
-        </div>
-      </div>
 
-      <div class="qa-accordion">
-        <div class="qa-item open">
-          <div class="qa-header" onclick="toggleQA(this)">
-            <span>Q1: তোমার ল্যাব রিপোর্টের টপিক এবং ডাটাসেটটি সম্পর্কে সংক্ষেপে বলো।</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="qa-content">
-            <strong>উত্তর:</strong> "স্যার, আমার প্রজেক্টের টপিক হলো <em>Breast Cancer Wisconsin Diagnostic Data Preprocessing, Exploratory Data Analysis (EDA), and Advanced Machine Learning</em>। ডাটাসেটটি Kaggle থেকে সংগৃহীত। এতে ক্যানসার কোষের নিউক্লিয়াসের ৩০টি জিওমেট্রিক ও টেক্সচার ফিচার এবং টার্গেট ভ্যারিয়েবল `diagnosis` (`Malignant` vs `Benign`) রয়েছে। মোট রেকর্ড সংখ্যা ১,১৩৮টি।"
-          </div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-header" onclick="toggleQA(this)">
-            <span>Q2: Multicollinearity কী এবং ল্যাবে কীভাবে তা সমাধান করা হয়েছে?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="qa-content">
-            <strong>উত্তর:</strong> যখন দুই বা ততোধিক ইন্ডিপেন্ডেন্ট ফিচারের মধ্যে অতি উচ্চ সম্পর্ক (r &gt; 0.95) থাকে, তাকে Multicollinearity বলে। Pearson Heatmap এ দেখা গেছে `radius_mean`, `perimeter_mean` এবং `area_mean` এর মধ্যে r &gt; 0.98 সম্পর্ক ছিল। তাই আমরা `perimeter_mean` ও `area_mean` বাদ দিয়ে শুধুমাত্র `radius_mean` রেখেছি যাতে রিগ্রেশন কো-এফিশিয়েন্ট স্টেবল থাকে।
-          </div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-header" onclick="toggleQA(this)">
-            <span>Q3: Logistic Regression এ AUC-ROC এর মান ০.৯৮৮৭ হওয়ার ক্লিনিক্যাল গুরুত্ব কী?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="qa-content">
-            <strong>উত্তর:</strong> ROC Curve ক্লাসিফায়ারের True Positive Rate বনাম False Positive Rate এর প্লট দেখায়। AUC ০.৯৮৮৭ নির্দেশ করে যে মডেলটির ৯৮.৮৭% সম্ভাবনা রয়েছে যে এটি যেকোনো এলোমেলো ম্যালিগন্যান্ট স্যাম্পলকে বিনাইন স্যাম্পলের চেয়ে উচ্চতর র্যাংক প্রদান করবে।
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Bottom Clinical Dock -->
@@ -1790,9 +1715,7 @@
       runPrediction();
     }
 
-    function toggleQA(headerEl) {
-      headerEl.parentElement.classList.toggle('open');
-    }
+
 
     window.addEventListener('DOMContentLoaded', initPresentation);
   </script>
