@@ -3,74 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Breast Cancer Diagnostic AI Presentation | Rumman Islam</title>
-  <meta name="description" content="Visual-first interactive presentation deck for Breast Cancer Diagnostic Preprocessing, EDA, and Logistic Regression Machine Learning.">
+  <title>Breast Cancer Diagnostic AI | Clinical Data Science Presentation</title>
+  <meta name="description" content="Clean and clinical medical presentation deck for Breast Cancer Diagnostic Preprocessing, EDA, and Logistic Regression Machine Learning.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     /* ==========================================================================
-       CSS RESET & DESIGN TOKENS
+       CLEAN & CLINICAL MEDICAL DESIGN SYSTEM
        ========================================================================== */
     :root {
-      --bg-dark: #070b14;
-      --bg-surface: #0e1526;
-      --bg-surface-elevated: #152038;
-      --bg-glass: rgba(14, 21, 38, 0.82);
-      --bg-glass-card: rgba(17, 26, 46, 0.75);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(0, 242, 254, 0.35);
+      /* Clean Clinical Light Theme (DEFAULT) */
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-canvas: #ffffff;
+      --bg-glass: rgba(255, 255, 255, 0.92);
+      --bg-card: #ffffff;
       
-      --cyan: #00f2fe;
-      --blue: #3b82f6;
-      --indigo: #6366f1;
-      --emerald: #10b981;
-      --rose: #f43f5e;
-      --amber: #f59e0b;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-accent: rgba(2, 132, 199, 0.3);
       
-      --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-      --gradient-accent: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
-      --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      /* Clinical Palette */
+      --clinical-navy: #0f172a;
+      --clinical-slate: #334155;
+      --clinical-muted: #64748b;
+      --clinical-blue: #0284c7;     /* Primary Clinical Blue */
+      --clinical-blue-dark: #0369a1;
+      --clinical-teal: #0d9488;     /* Diagnostic Teal */
+      --clinical-rose: #be123c;     /* Malignant / High Risk */
+      --clinical-emerald: #047857;  /* Benign / Normal */
+      --clinical-amber: #d97706;    /* Warning / Outlier */
       
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-faint: #64748b;
+      --text-title: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      
+      --gradient-clinical: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
       
       --font-heading: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
       --radius-full: 9999px;
       
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
-      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 12px 36px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.04);
+      
+      --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Light Theme */
-    body.light-theme {
-      --bg-dark: #f8fafc;
-      --bg-surface: #ffffff;
-      --bg-surface-elevated: #f1f5f9;
-      --bg-glass: rgba(255, 255, 255, 0.88);
-      --bg-glass-card: rgba(255, 255, 255, 0.95);
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --border-glow: rgba(59, 130, 246, 0.35);
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-faint: #94a3b8;
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+    /* Clinical Dark Mode (Optional Presenter Toggle) */
+    body.dark-theme {
+      --bg-base: #0b1120;
+      --bg-surface: #111a2e;
+      --bg-surface-elevated: #16223b;
+      --bg-canvas: #090e1a;
+      --bg-glass: rgba(17, 26, 46, 0.92);
+      --bg-card: #111a2e;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --clinical-navy: #f8fafc;
+      --clinical-slate: #cbd5e1;
+      --clinical-muted: #94a3b8;
+      --text-title: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
     }
 
     * {
@@ -83,167 +98,148 @@
     html, body {
       width: 100%;
       height: 100%;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      background-color: var(--bg-base);
+      color: var(--text-body);
       font-family: var(--font-body);
       overflow-x: hidden;
     }
 
-    /* Ambient Pattern */
-    .bg-grid {
+    /* Subtle Medical Grid Pattern */
+    .bg-pattern {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       background-image: 
-        radial-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
-        radial-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-      background-size: 44px 44px, 88px 88px;
-      background-position: 0 0, 22px 22px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ambient-glow {
-      position: fixed;
-      width: 650px;
-      height: 650px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%);
-      top: -150px;
-      right: -100px;
+        linear-gradient(to right, rgba(2, 132, 199, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(2, 132, 199, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
       pointer-events: none;
       z-index: 0;
     }
 
     /* ==========================================================================
-       TOP NAVIGATION
+       TOP CLINICAL HEADER
        ========================================================================== */
-    .top-nav {
+    .clinical-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 68px;
+      height: 64px;
       background: var(--bg-glass);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 28px;
+      padding: 0 32px;
       z-index: 100;
     }
 
-    .nav-brand {
+    .header-brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
-      color: inherit;
       cursor: pointer;
     }
 
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--gradient-primary);
+    .brand-cross {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--gradient-clinical);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.15rem;
-      color: #070b14;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+      color: #ffffff;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
     }
 
-    .brand-info {
+    .brand-meta {
       display: flex;
       flex-direction: column;
     }
 
     .brand-title {
       font-family: var(--font-heading);
-      font-weight: 800;
+      font-weight: 700;
       font-size: 1.05rem;
-      letter-spacing: -0.02em;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text-title);
+      letter-spacing: -0.01em;
     }
 
-    .brand-sub {
+    .brand-subtitle {
       font-size: 0.72rem;
-      color: var(--text-muted);
+      color: var(--clinical-muted);
       font-family: var(--font-mono);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
 
-    .nav-controls {
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .nav-btn {
-      background: var(--bg-surface-elevated);
-      color: var(--text-main);
+    .action-btn {
+      background: var(--bg-surface);
+      color: var(--text-body);
       border: 1px solid var(--border-subtle);
-      padding: 8px 14px;
+      padding: 7px 14px;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       font-family: var(--font-body);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       cursor: pointer;
       transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
     }
 
-    .nav-btn:hover {
-      background: rgba(0, 242, 254, 0.15);
-      border-color: var(--cyan);
-      color: var(--cyan);
+    .action-btn:hover {
+      border-color: var(--clinical-blue);
+      color: var(--clinical-blue);
       transform: translateY(-1px);
     }
 
-    .nav-btn.active {
-      background: var(--gradient-primary);
-      color: #070b14;
-      border-color: transparent;
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+    .action-btn.active {
+      background: var(--clinical-blue);
+      color: #ffffff;
+      border-color: var(--clinical-blue);
     }
 
-    /* Progress bar */
-    .progress-container {
+    /* Progress Line */
+    .presentation-progress {
       position: fixed;
-      top: 67px;
+      top: 63px;
       left: 0;
       width: 100%;
       height: 3px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(2, 132, 199, 0.08);
       z-index: 101;
     }
 
-    .progress-bar {
+    .progress-fill {
       height: 100%;
-      width: 14.28%;
-      background: var(--gradient-primary);
-      box-shadow: 0 0 12px var(--cyan);
+      width: 12.5%;
+      background: var(--gradient-clinical);
       transition: width 0.3s ease;
     }
 
     /* ==========================================================================
-       MAIN CONTAINER & SLIDE SYSTEM (7 VISUAL SLIDES)
+       DECK CONTAINER & SLIDES
        ========================================================================== */
-    .deck-container {
+    .presentation-deck {
       position: relative;
       width: 100vw;
-      height: calc(100vh - 70px);
-      margin-top: 70px;
+      height: calc(100vh - 64px);
+      margin-top: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -251,34 +247,32 @@
       z-index: 1;
     }
 
-    /* Scroll Mode */
-    body.mode-scroll .deck-container {
+    /* Continuous Scroll Mode */
+    body.mode-scroll .presentation-deck {
       height: auto;
       min-height: 100vh;
       display: block;
       overflow: visible;
-      padding: 30px 20px 100px;
+      padding: 30px 24px 100px;
     }
 
-    body.mode-scroll .slide {
+    body.mode-scroll .clinical-slide {
       opacity: 1 !important;
       visibility: visible !important;
       position: relative !important;
       transform: none !important;
-      margin: 0 auto 40px auto !important;
-      max-width: 1280px;
+      margin: 0 auto 36px auto !important;
+      max-width: 1300px;
     }
 
-    /* Slide Deck Mode */
-    .slide {
+    /* Slide Card */
+    .clinical-slide {
       position: absolute;
       width: 94%;
-      max-width: 1320px;
+      max-width: 1340px;
       height: 84vh;
-      max-height: 790px;
-      background: var(--bg-glass-card);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      max-height: 800px;
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
@@ -287,20 +281,20 @@
       flex-direction: column;
       opacity: 0;
       visibility: hidden;
-      transform: scale(0.97) translateY(20px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.98) translateY(16px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow-y: auto;
     }
 
-    .slide::-webkit-scrollbar {
-      width: 5px;
+    .clinical-slide::-webkit-scrollbar {
+      width: 6px;
     }
-    .slide::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
+    .clinical-slide::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
       border-radius: 10px;
     }
 
-    .slide.active {
+    .clinical-slide.active {
       opacity: 1;
       visibility: visible;
       transform: scale(1) translateY(0);
@@ -312,34 +306,34 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--border-subtle);
       padding-bottom: 14px;
       flex-shrink: 0;
     }
 
-    .slide-badge {
+    .clinical-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
-      background: rgba(0, 242, 254, 0.1);
-      border: 1px solid rgba(0, 242, 254, 0.25);
-      color: var(--cyan);
+      padding: 3px 10px;
+      background: rgba(2, 132, 199, 0.08);
+      border: 1px solid rgba(2, 132, 199, 0.2);
+      color: var(--clinical-blue-dark);
       border-radius: var(--radius-full);
       font-size: 0.72rem;
       font-weight: 700;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+      margin-bottom: 5px;
     }
 
     .slide-title {
       font-family: var(--font-heading);
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--text-title);
       line-height: 1.2;
       letter-spacing: -0.02em;
     }
@@ -350,15 +344,15 @@
       margin-top: 3px;
     }
 
-    .slide-num-indicator {
+    .slide-indexer {
       font-family: var(--font-mono);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--cyan);
-      background: rgba(0, 242, 254, 0.08);
+      color: var(--clinical-blue);
+      background: rgba(2, 132, 199, 0.06);
       padding: 6px 14px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(0, 242, 254, 0.2);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(2, 132, 199, 0.18);
     }
 
     .slide-body {
@@ -370,37 +364,35 @@
     }
 
     /* ==========================================================================
-       VISUAL-FIRST 70/30 HERO LAYOUT
+       CLINICAL 68 / 32 HERO LAYOUT
        ========================================================================== */
-    .visual-first-grid {
+    .clinical-grid {
       display: grid;
-      grid-template-columns: 2.2fr 1fr; /* 68% Image Canvas, 32% Key Insights */
+      grid-template-columns: 2.15fr 1fr; /* 68% Visual Canvas, 32% Key Insights */
       gap: 24px;
-      align-items: center;
+      align-items: stretch;
       height: 100%;
     }
 
-    .hero-image-canvas {
+    .visual-canvas {
       display: flex;
       gap: 16px;
       justify-content: center;
       align-items: center;
-      background: rgba(9, 14, 26, 0.75);
+      background: var(--bg-surface-elevated);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 16px;
       height: 100%;
-      max-height: 540px;
+      max-height: 550px;
       position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
     }
 
-    .hero-image-canvas.single {
-      padding: 10px;
+    .visual-canvas.single {
+      padding: 12px;
     }
 
-    .hero-img-box {
+    .canvas-card {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -411,51 +403,52 @@
       cursor: zoom-in;
     }
 
-    .hero-img-box img {
+    .canvas-card img {
       max-width: 100%;
       max-height: 480px;
       object-fit: contain;
       border-radius: var(--radius-sm);
-      transition: transform var(--transition-normal);
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.5));
+      transition: transform var(--transition-fast);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+      background: #ffffff;
     }
 
-    .hero-img-box:hover img {
-      transform: scale(1.025);
+    .canvas-card:hover img {
+      transform: scale(1.02);
     }
 
-    .img-zoom-btn {
+    .zoom-hint {
       position: absolute;
       top: 10px;
       right: 10px;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      color: var(--cyan);
+      background: rgba(15, 23, 42, 0.75);
+      color: #ffffff;
       border-radius: var(--radius-sm);
-      padding: 4px 8px;
-      font-size: 0.75rem;
+      padding: 3px 7px;
+      font-size: 0.72rem;
       opacity: 0;
       transition: opacity var(--transition-fast);
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
-    .hero-img-box:hover .img-zoom-btn {
+    .canvas-card:hover .zoom-hint {
       opacity: 1;
     }
 
-    .img-caption {
-      font-size: 0.75rem;
+    .figure-tag {
+      font-size: 0.76rem;
       font-family: var(--font-mono);
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--clinical-muted);
       margin-top: 8px;
       text-align: center;
     }
 
-    /* Key Insights Card (30% right column) */
-    .insights-card {
-      background: var(--bg-surface-elevated);
+    /* Key Insights Panel (Right Column) */
+    .clinical-insights-panel {
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 22px;
@@ -463,89 +456,82 @@
       flex-direction: column;
       gap: 16px;
       height: 100%;
-      max-height: 540px;
+      max-height: 550px;
       justify-content: center;
+      box-shadow: var(--shadow-sm);
     }
 
-    .insight-pill {
+    .metric-chip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-family: var(--font-mono);
       font-weight: 700;
-      border: 1px solid var(--border-subtle);
     }
 
-    .pill-cyan { background: rgba(0, 242, 254, 0.12); color: var(--cyan); border-color: rgba(0, 242, 254, 0.3); }
-    .pill-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border-color: rgba(244, 63, 94, 0.3); }
-    .pill-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
+    .chip-blue { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .chip-rose { background: #ffe4e6; color: #be123c; border: 1px solid #fecdd3; }
+    .chip-emerald { background: #d1fae5; color: #047857; border: 1px solid #a7f3d0; }
 
-    .insight-bullet {
+    .clinical-takeaway {
       display: flex;
       gap: 12px;
       align-items: flex-start;
-      font-size: 0.9rem;
-      color: var(--text-muted);
+      font-size: 0.88rem;
+      color: var(--text-body);
       line-height: 1.55;
     }
 
-    .insight-bullet i {
-      color: var(--cyan);
-      margin-top: 4px;
+    .clinical-takeaway i {
+      color: var(--clinical-blue);
+      margin-top: 3px;
       font-size: 0.95rem;
       flex-shrink: 0;
     }
 
-    .insight-bullet strong {
-      color: var(--text-main);
+    .clinical-takeaway strong {
+      color: var(--text-title);
     }
 
-    /* Stat Box (Slide 1 Hero) */
+    /* Hero Slide Stat Grid (Slide 1) */
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .stat-box {
-      background: linear-gradient(135deg, rgba(21, 32, 56, 0.9) 0%, rgba(14, 21, 38, 0.95) 100%);
+    .clinical-stat-box {
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 20px 16px;
       text-align: center;
-      position: relative;
+      border-top: 3px solid var(--clinical-blue);
+      box-shadow: var(--shadow-sm);
     }
 
-    .stat-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--gradient-primary);
-    }
+    .clinical-stat-box.emerald { border-top-color: var(--clinical-emerald); }
+    .clinical-stat-box.rose { border-top-color: var(--clinical-rose); }
+    .clinical-stat-box.teal { border-top-color: var(--clinical-teal); }
 
-    .stat-value {
+    .stat-number {
       font-family: var(--font-heading);
       font-size: 2.3rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--clinical-navy);
       line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
-    .stat-label {
-      font-size: 0.78rem;
+    .stat-caption {
+      font-size: 0.76rem;
       font-family: var(--font-mono);
-      color: var(--text-muted);
+      color: var(--clinical-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       margin-top: 6px;
     }
 
@@ -555,118 +541,153 @@
       gap: 20px;
     }
 
-    .card {
-      background: var(--bg-surface-elevated);
+    .clinical-card {
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 22px;
+      box-shadow: var(--shadow-sm);
     }
 
-    .card-accent-cyan { border-left: 4px solid var(--cyan); }
-    .card-accent-indigo { border-left: 4px solid var(--indigo); }
+    .clinical-card.accent-blue { border-left: 4px solid var(--clinical-blue); }
+    .clinical-card.accent-teal { border-left: 4px solid var(--clinical-teal); }
 
-    .card-title {
+    .card-heading {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-title);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 10px;
     }
 
-    .card-p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    .card-body {
+      font-size: 0.88rem;
+      color: var(--text-body);
       line-height: 1.6;
     }
 
+    /* Comparison Table (Slide 8) */
+    .clinical-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 14px;
+    }
+
+    .clinical-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    .clinical-table th {
+      background: #f1f5f9;
+      color: var(--clinical-navy);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .clinical-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    .clinical-table tr:last-child td { border-bottom: none; }
+    .clinical-table tr.highlight { background: rgba(2, 132, 199, 0.05); font-weight: 600; }
+
     /* ==========================================================================
-       BOTTOM DOCK CONTROLS
+       BOTTOM CLINICAL DOCK
        ========================================================================== */
-    .deck-dock {
+    .clinical-dock {
       position: fixed;
-      bottom: 22px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--bg-glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-strong);
       border-radius: var(--radius-full);
       box-shadow: var(--shadow-lg);
-      padding: 7px 18px;
+      padding: 6px 18px;
       display: flex;
       align-items: center;
       gap: 14px;
       z-index: 100;
     }
 
-    .dock-btn {
-      width: 40px;
-      height: 40px;
+    .dock-control {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: var(--bg-surface-elevated);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      color: var(--text-main);
+      color: var(--clinical-navy);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-size: 0.95rem;
       transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
     }
 
-    .dock-btn:hover {
-      background: var(--cyan);
-      color: #070b14;
-      border-color: transparent;
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
-      transform: scale(1.08);
+    .dock-control:hover {
+      background: var(--clinical-blue);
+      color: #ffffff;
+      border-color: var(--clinical-blue);
+      transform: scale(1.06);
     }
 
     .dock-counter {
       font-family: var(--font-mono);
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--clinical-muted);
       min-width: 65px;
       text-align: center;
     }
 
-    .dock-counter span { color: var(--cyan); }
+    .dock-counter span { color: var(--clinical-blue); }
 
-    .timer-pill {
+    .clinical-timer {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(0, 242, 254, 0.08);
-      border: 1px solid rgba(0, 242, 254, 0.2);
+      gap: 7px;
+      background: #f1f5f9;
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-full);
-      padding: 5px 12px;
+      padding: 4px 12px;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--cyan);
+      font-size: 0.8rem;
+      color: var(--clinical-slate);
     }
 
-    .timer-btn {
+    .timer-action {
       background: none;
       border: none;
-      color: var(--cyan);
+      color: var(--clinical-blue);
       cursor: pointer;
       font-size: 0.8rem;
     }
 
-    /* Modal / Lightbox */
+    /* Modals */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(5, 8, 15, 0.92);
-      backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
       z-index: 200;
       display: none;
       align-items: center;
@@ -677,8 +698,7 @@
     .modal-overlay.active { display: flex; }
 
     .modal-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-glow);
+      background: #ffffff;
       border-radius: var(--radius-lg);
       max-width: 950px;
       width: 95%;
@@ -686,7 +706,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 0 50px rgba(0, 242, 254, 0.25);
+      box-shadow: var(--shadow-lg);
     }
 
     .modal-header {
@@ -699,15 +719,15 @@
 
     .modal-title {
       font-family: var(--font-heading);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--cyan);
+      color: var(--clinical-navy);
     }
 
     .modal-close {
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--clinical-muted);
       font-size: 1.4rem;
       cursor: pointer;
     }
@@ -720,9 +740,8 @@
 
     .modal-body img {
       max-width: 100%;
-      max-height: 68vh;
+      max-height: 70vh;
       object-fit: contain;
-      border-radius: var(--radius-sm);
     }
 
     /* Grid Overview Modal */
@@ -732,8 +751,8 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(7, 11, 20, 0.96);
-      backdrop-filter: blur(20px);
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(18px);
       z-index: 300;
       display: none;
       flex-direction: column;
@@ -751,7 +770,7 @@
     }
 
     .overview-card {
-      background: var(--bg-surface-elevated);
+      background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 18px;
@@ -763,29 +782,29 @@
     }
 
     .overview-card:hover, .overview-card.current {
-      border-color: var(--cyan);
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-      transform: translateY(-3px);
+      border-color: var(--clinical-blue);
+      box-shadow: 0 0 16px rgba(2, 132, 199, 0.25);
+      transform: translateY(-2px);
     }
 
-    .overview-card.current { background: rgba(0, 242, 254, 0.08); }
-    .overview-card-num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); }
-    .overview-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
+    .overview-card.current { border-left: 4px solid var(--clinical-blue); }
+    .overview-card-num { font-family: var(--font-mono); font-size: 0.78rem; color: var(--clinical-blue); }
+    .overview-card-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #0f172a; }
 
     /* Interactive Lab Drawer */
     .interactive-drawer {
       display: none;
-      max-width: 1280px;
+      max-width: 1300px;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
     .simulator-container {
-      background: linear-gradient(145deg, rgba(14, 21, 38, 0.95), rgba(21, 32, 56, 0.9));
-      border: 1px solid rgba(0, 242, 254, 0.3);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-md);
       margin-bottom: 40px;
     }
 
@@ -801,16 +820,16 @@
       justify-content: space-between;
       font-size: 0.82rem;
       font-family: var(--font-mono);
-      color: var(--text-muted);
+      color: var(--clinical-slate);
     }
 
-    .sim-slider-val { color: var(--cyan); font-weight: 700; }
+    .sim-slider-val { color: var(--clinical-blue); font-weight: 700; }
 
     .sim-slider {
       width: 100%;
       height: 6px;
       border-radius: 5px;
-      background: #1e293b;
+      background: #e2e8f0;
       outline: none;
       -webkit-appearance: none;
       cursor: pointer;
@@ -821,24 +840,24 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: var(--gradient-primary);
+      background: var(--clinical-blue);
       cursor: pointer;
-      box-shadow: 0 0 10px var(--cyan);
       border: 2px solid #ffffff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .sim-gauge {
       padding: 18px;
       border-radius: var(--radius-md);
-      background: #090e1a;
+      background: #f8fafc;
       text-align: center;
       border: 1px solid var(--border-subtle);
     }
 
     .sim-meter {
       width: 100%;
-      height: 16px;
-      background: #1e293b;
+      height: 14px;
+      background: #e2e8f0;
       border-radius: 10px;
       overflow: hidden;
       margin: 10px 0;
@@ -847,7 +866,7 @@
     .sim-meter-fill {
       height: 100%;
       width: 14.2%;
-      background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #f43f5e 100%);
+      background: linear-gradient(90deg, #059669 0%, #d97706 50%, #be123c 100%);
       transition: width 0.3s ease;
     }
 
@@ -858,7 +877,7 @@
     }
 
     .qa-item {
-      background: var(--bg-surface-elevated);
+      background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -871,402 +890,469 @@
       align-items: center;
       cursor: pointer;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      color: var(--clinical-navy);
     }
 
     .qa-content {
       padding: 0 18px 16px;
       font-size: 0.88rem;
-      color: var(--text-muted);
+      color: var(--clinical-slate);
       line-height: 1.6;
       border-top: 1px solid var(--border-subtle);
       display: none;
     }
 
     .qa-item.open .qa-content { display: block; padding-top: 14px; }
-    .qa-item.open .qa-header i { transform: rotate(180deg); color: var(--cyan); }
+    .qa-item.open .qa-header i { transform: rotate(180deg); color: var(--clinical-blue); }
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .visual-first-grid { grid-template-columns: 1fr; }
-      .hero-image-canvas { flex-direction: column; max-height: none; }
-      .hero-img-box img { max-height: 280px; }
+      .clinical-grid { grid-template-columns: 1fr; }
+      .visual-canvas { flex-direction: column; max-height: none; }
+      .canvas-card img { max-height: 280px; }
       .grid-4, .grid-2 { grid-template-columns: 1fr; }
-      .slide { padding: 20px; height: 88vh; }
-      .slide-title { font-size: 1.4rem; }
+      .clinical-slide { padding: 20px; height: 88vh; }
+      .slide-title { font-size: 1.35rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-grid"></div>
-  <div class="ambient-glow"></div>
+  <div class="bg-pattern"></div>
 
-  <!-- Top Navigation -->
-  <header class="top-nav">
-    <div class="nav-brand" onclick="goToSlide(0)">
-      <div class="brand-icon"><i class="fa-solid fa-dna"></i></div>
-      <div class="brand-info">
+  <!-- Clinical Top Navigation -->
+  <header class="clinical-header">
+    <div class="header-brand" onclick="goToSlide(0)">
+      <div class="brand-cross"><i class="fa-solid fa-notes-medical"></i></div>
+      <div class="brand-meta">
         <span class="brand-title">Breast Cancer Diagnostic AI</span>
-        <span class="brand-sub">Visual Research Presentation · Rumman Islam</span>
+        <span class="brand-subtitle">Clinical Data Science Presentation · Rumman Islam</span>
       </div>
     </div>
 
-    <div class="nav-controls">
-      <button class="nav-btn active" id="btnModeDeck" onclick="setMode('deck')">
+    <div class="header-actions">
+      <button class="action-btn active" id="btnModeDeck" onclick="setMode('deck')">
         <i class="fa-solid fa-layer-group"></i> Slide Deck
       </button>
-      <button class="nav-btn" id="btnModeScroll" onclick="setMode('scroll')">
-        <i class="fa-solid fa-scroll"></i> Full Report
+      <button class="action-btn" id="btnModeScroll" onclick="setMode('scroll')">
+        <i class="fa-solid fa-scroll"></i> Clinical Report
       </button>
-      <button class="nav-btn" onclick="toggleOverviewModal()" title="View all slides (Shortcut: O)">
+      <button class="action-btn" onclick="toggleOverviewModal()" title="View all slides (Shortcut: O)">
         <i class="fa-solid fa-grip"></i> Grid
       </button>
-      <button class="nav-btn" onclick="toggleFullScreen()" title="Fullscreen presentation (Shortcut: F)">
+      <button class="action-btn" onclick="toggleFullScreen()" title="Fullscreen presentation (Shortcut: F)">
         <i class="fa-solid fa-expand"></i>
       </button>
-      <button class="nav-btn" onclick="toggleTheme()" title="Toggle Theme">
+      <button class="action-btn" onclick="toggleTheme()" title="Toggle Theme">
         <i class="fa-solid fa-circle-half-stroke" id="themeIcon"></i>
       </button>
     </div>
   </header>
 
   <!-- Progress Bar -->
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
+  <div class="presentation-progress">
+    <div class="progress-fill" id="progressBar"></div>
   </div>
 
-  <!-- Main Presentation Deck Container -->
-  <main class="deck-container" id="deckContainer">
+  <!-- ==========================================================================
+       8-SLIDE CLINICAL PRESENTATION DECK
+       ========================================================================== -->
+  <main class="presentation-deck" id="deckContainer">
 
-    <!-- ======================================================================
-         SLIDE 1: Hero & Clinical Highlights (01 / 07)
-         ====================================================================== -->
-    <section class="slide active" id="slide-0">
+    <!-- SLIDE 1: Executive Clinical Summary & Candidate Profile (01 / 08) -->
+    <section class="clinical-slide active" id="slide-0">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-microscope"></i> Data Science Lab Defense Presentation</span>
-          <h1 class="slide-title">Breast Cancer Diagnosis via Logistic Regression</h1>
-          <p class="slide-subtitle">Fine Needle Aspirate (FNA) Cytological Analysis & Explainable AI Pipeline</p>
+          <span class="clinical-badge"><i class="fa-solid fa-stethoscope"></i> Clinical Decision Support System</span>
+          <h1 class="slide-title">FNA Biopsy Malignancy Triage via Logistic Regression</h1>
+          <p class="slide-subtitle">Explainable Machine Learning Pipeline for Cytopathological Nuclear Morphometry</p>
         </div>
-        <div class="slide-num-indicator">01 / 07</div>
+        <div class="slide-indexer">01 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="grid-4" style="margin-bottom: 20px;">
-          <div class="stat-box">
-            <div class="stat-value">1,138</div>
-            <div class="stat-label">Total Records</div>
+        <div class="grid-4" style="margin-bottom: 22px;">
+          <div class="clinical-stat-box teal">
+            <div class="stat-number">1,138</div>
+            <div class="stat-caption">Cohort Size (0 Nulls)</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-value">93.42%</div>
-            <div class="stat-label">LogReg Accuracy</div>
+          <div class="clinical-stat-box">
+            <div class="stat-number">93.42%</div>
+            <div class="stat-caption">Diagnostic Accuracy</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-value">0.9887</div>
-            <div class="stat-label">AUC-ROC Score</div>
+          <div class="clinical-stat-box emerald">
+            <div class="stat-number">0.9887</div>
+            <div class="stat-caption">AUC-ROC Discriminability</div>
           </div>
-          <div class="stat-box">
-            <div class="stat-value" style="color: #10b981;">7</div>
-            <div class="stat-label">Optimal Features</div>
+          <div class="clinical-stat-box rose">
+            <div class="stat-number">7</div>
+            <div class="stat-caption">Curated Biomarkers</div>
           </div>
         </div>
 
         <div class="grid-2">
-          <div class="card card-accent-cyan">
-            <div class="card-title"><i class="fa-solid fa-user-graduate"></i> Researcher & Candidate Profile</div>
-            <p class="card-p">
+          <div class="clinical-card accent-blue">
+            <div class="card-heading"><i class="fa-solid fa-user-doctor"></i> Researcher & Clinical Profile</div>
+            <p class="card-body">
               <strong>Student:</strong> Rumman Islam<br>
               <strong>Course:</strong> Data Science<br>
-              <strong>Repository:</strong> <a href="https://github.com/rumman-islam/data-science" target="_blank" style="color: var(--cyan); text-decoration: none;">github.com/rumman-islam/data-science <i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-              <strong>Methodology:</strong> 8-D EDA, VIF Multicollinearity Reduction, Logistic Regression & Unsupervised K-Means
+              <strong>Repository:</strong> <a href="https://github.com/rumman-islam/data-science" target="_blank" style="color: var(--clinical-blue); text-decoration: none; font-weight: 600;">github.com/rumman-islam/data-science <i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
+              <strong>Clinical Framework:</strong> Fine Needle Aspirate (FNA) Feature Extraction, Multicollinearity Mitigation, Logistic Regression & Unsupervised K-Means ($K=2$)
             </p>
           </div>
 
-          <div class="card card-accent-indigo">
-            <div class="card-title"><i class="fa-solid fa-bullseye"></i> Clinical Mission</div>
-            <p class="card-p">
-              Early detection is critical in reducing breast cancer mortality. This project delivers an automated clinical decision support system that classifies tumors as <strong>Malignant (M)</strong> or <strong>Benign (B)</strong> with <strong>0.9887 AUC-ROC</strong>, ensuring fully explainable biological weights.
+          <div class="clinical-card accent-teal">
+            <div class="card-heading"><i class="fa-solid fa-bullseye"></i> Executive Medical Abstract</div>
+            <p class="card-body">
+              Fine needle aspiration biopsy cytology is critical in breast oncology triage. This study validates an explainable machine learning workflow classifying breast tumors into <strong>Malignant (M)</strong> or <strong>Benign (B)</strong> with <strong>0.9887 AUC-ROC</strong>. By isolating 7 non-redundant cell nucleus measurements, the model guarantees full biological interpretability for pathologists.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 2: Dataset & Class Distribution (02 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-1">
+    <!-- SLIDE 2: Cohort Demographics & Class Balance (02 / 08) -->
+    <section class="clinical-slide" id="slide-1">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-database"></i> Clinical Dataset Architecture</span>
-          <h2 class="slide-title">Dataset Characteristics & Class Balance</h2>
-          <p class="slide-subtitle">Wisconsin Diagnostic Dataset (WDBC) — 31 Attributes, 0 Missing Values</p>
+          <span class="clinical-badge"><i class="fa-solid fa-hospital-user"></i> Patient Cohort Architecture</span>
+          <h2 class="slide-title">Cohort Characteristics & Class Distribution</h2>
+          <p class="slide-subtitle">Wisconsin Diagnostic Dataset (WDBC) — 31 Cytological Features, 100% Complete</p>
         </div>
-        <div class="slide-num-indicator">02 / 07</div>
+        <div class="slide-indexer">02 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas">
-            <div class="hero-img-box" onclick="openChartModal('images/01_bar_diagnosis_count.png', 'Bar Chart: 714 Benign vs 424 Malignant patient records.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas">
+            <div class="canvas-card" onclick="openChartModal('images/01_bar_diagnosis_count.png')">
               <img src="images/01_bar_diagnosis_count.png" alt="Diagnosis Bar Chart">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 1: Diagnosis Class Distribution</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 1: Diagnosis Class Frequencies</div>
             </div>
-            <div class="hero-img-box" onclick="openChartModal('images/02_pie_diagnosis_ratio.png', 'Pie Chart: 62.7% Benign vs 37.3% Malignant ratio.')">
+            <div class="canvas-card" onclick="openChartModal('images/02_pie_diagnosis_ratio.png')">
               <img src="images/02_pie_diagnosis_ratio.png" alt="Diagnosis Pie Chart">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 2: Diagnosis Proportions</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 2: Malignant vs Benign Ratio</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="insight-pill pill-cyan">
-              <i class="fa-solid fa-circle-check"></i> 100% Data Completeness
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-blue">
+              <i class="fa-solid fa-shield-check"></i> 100% Data Completeness
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Augmented Cohort:</strong> 1,138 samples (duplicated from 569 to meet $\ge 1,000$ row academic requirement).</div>
+              <div><strong>Cohort Size:</strong> 1,138 FNA biopsy records (doubled from original 569 to fulfill ≥ 1,000 row academic requirement).</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Mild Class Imbalance:</strong> 714 Benign (62.7%) vs 424 Malignant (37.3%).</div>
+              <div><strong>Prevalence Breakdown:</strong> 714 Benign cases (62.7%) vs 424 Malignant cases (37.3%).</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Evaluation Guardrail:</strong> Precision, Recall, and ROC-AUC are prioritized over raw accuracy to protect against majority-class bias.</div>
+              <div><strong>Methodological Rigor:</strong> Stratified 80/20 train/test splitting preserves class ratios; sensitivity and ROC-AUC prevent majority-class bias.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 3: Tumor Size & Outliers (03 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-2">
+    <!-- SLIDE 3: Nuclear Morphometry & Pathological Outliers (03 / 08) -->
+    <section class="clinical-slide" id="slide-2">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-chart-column"></i> Morphometric EDA</span>
-          <h2 class="slide-title">Tumor Morphology & Outlier Variance</h2>
-          <p class="slide-subtitle">Distribution shift and extreme geometric dispersion in malignant nuclei</p>
+          <span class="clinical-badge"><i class="fa-solid fa-microscope"></i> Quantitative Cytopathology</span>
+          <h2 class="slide-title">Nuclear Morphometry & Pathological Outliers</h2>
+          <p class="slide-subtitle">Distribution shift and extreme geometric variance in malignant cell nuclei</p>
         </div>
-        <div class="slide-num-indicator">03 / 07</div>
+        <div class="slide-indexer">03 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas">
-            <div class="hero-img-box" onclick="openChartModal('images/03_histogram_radius_distribution.png', 'Radius Histogram: Malignant tumors have a right-shifted distribution with elevated mean radius.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas">
+            <div class="canvas-card" onclick="openChartModal('images/03_histogram_radius_distribution.png')">
               <img src="images/03_histogram_radius_distribution.png" alt="Radius Mean Histogram">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 3: Radius Mean Distribution with KDE</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 3: Radius Mean Distribution with KDE</div>
             </div>
-            <div class="hero-img-box" onclick="openChartModal('images/04_boxplot_area_by_diagnosis.png', 'Area Box Plot: Malignant cases show severe outliers exceeding 2,000 mm².')">
+            <div class="canvas-card" onclick="openChartModal('images/04_boxplot_area_by_diagnosis.png')">
               <img src="images/04_boxplot_area_by_diagnosis.png" alt="Area Mean Boxplot">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 4: Area Outlier Dispersion</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 4: Area Outlier Dispersion</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="insight-pill pill-rose">
-              <i class="fa-solid fa-triangle-exclamation"></i> Significant Right-Shift
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-rose">
+              <i class="fa-solid fa-arrow-trend-up"></i> Severe Right-Skew
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Clear Separation:</strong> Benign nuclei cluster tightly around smaller radius values ($\approx 12\text{ mm}$), whereas malignant cases shift heavily right ($\approx 17.5\text{ mm}$).</div>
+              <div><strong>Morphological Shift:</strong> Benign nuclei cluster tightly at lower radius values (≈ 12.1 mm); malignant cases exhibit pronounced shift (≈ 17.5 mm).</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Clinical Outliers:</strong> Area values reach $>2,000\text{ mm}^2$ in malignant cases. These are genuine biological hallmarks of cellular dysplasia, not measurement error.</div>
+              <div><strong>Biological Hallmarks:</strong> Outliers reaching > 2,000 mm² in the area boxplot are genuine clinical manifestations of cellular dysplasia and nuclear pleomorphism.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 4: Multicollinearity & Feature Space (04 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-3">
+    <!-- SLIDE 4: Multicollinearity Mitigation & Feature Selection (04 / 08) -->
+    <section class="clinical-slide" id="slide-3">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-diagram-project"></i> Feature Interdependence</span>
+          <span class="clinical-badge"><i class="fa-solid fa-diagram-project"></i> Feature Engineering</span>
           <h2 class="slide-title">Multicollinearity Mitigation & Feature Selection</h2>
-          <p class="slide-subtitle">Eliminating mathematical redundancy (r > 0.98) to stabilize regression weights</p>
+          <p class="slide-subtitle">Eliminating mathematical collinearity (r > 0.98) to stabilize regression coefficients</p>
         </div>
-        <div class="slide-num-indicator">04 / 07</div>
+        <div class="slide-indexer">04 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas">
-            <div class="hero-img-box" onclick="openChartModal('images/06_heatmap_correlation.png', 'Correlation Heatmap: Radius, perimeter, and area exhibit r > 0.98 collinearity.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas">
+            <div class="canvas-card" onclick="openChartModal('images/06_heatmap_correlation.png')">
               <img src="images/06_heatmap_correlation.png" alt="Correlation Heatmap">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 5: Pearson Correlation Matrix</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 5: Pearson Correlation Heatmap Matrix</div>
             </div>
-            <div class="hero-img-box" onclick="openChartModal('images/05_scatterplot_radius_vs_texture.png', 'Scatter Plot: Distinct bivariate separation between Malignant and Benign clusters.')">
+            <div class="canvas-card" onclick="openChartModal('images/05_scatterplot_radius_vs_texture.png')">
               <img src="images/05_scatterplot_radius_vs_texture.png" alt="Radius vs Texture Scatter">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 6: Radius vs Texture Space</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 6: Radius vs Texture Feature Space</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="insight-pill pill-cyan">
-              <i class="fa-solid fa-sliders"></i> 7 Selected Predictors
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-blue">
+              <i class="fa-solid fa-sliders"></i> 7 Selected Biomarkers
             </div>
 
-            <div class="insight-bullet">
-              <i class="fa-solid fa-ban" style="color: #f43f5e;"></i>
-              <div><strong>Dropped Features:</strong> `perimeter_mean` ($r = 0.998$) and `area_mean` ($r = 0.987$) dropped to eliminate severe Variance Inflation (VIF).</div>
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-ban" style="color: var(--clinical-rose);"></i>
+              <div><strong>Redundant Metrics Dropped:</strong> `perimeter_mean` ($r = 0.998$) and `area_mean` ($r = 0.987$) dropped to eliminate high Variance Inflation (VIF > 100).</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Orthogonal Retained Set:</strong> `radius_mean`, `texture_mean`, `smoothness_mean`, `compactness_mean`, `concavity_mean`, `concave points_mean`, `symmetry_mean`.</div>
+              <div><strong>Retained Orthogonal Inputs:</strong> `radius_mean`, `texture_mean`, `smoothness_mean`, `compactness_mean`, `concavity_mean`, `concave points_mean`, `symmetry_mean`.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 5: Model Classification & Feature Drivers (05 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-4">
+    <!-- SLIDE 5: Clinical Classification & Quantitative Biomarker Drivers (05 / 08) -->
+    <section class="clinical-slide" id="slide-4">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-brain"></i> Classification Results</span>
-          <h2 class="slide-title">Confusion Matrix & Key Feature Drivers</h2>
-          <p class="slide-subtitle">Logistic Regression test set evaluation (N = 228) and standardized coefficients</p>
+          <span class="clinical-badge"><i class="fa-solid fa-chart-line-up"></i> Diagnostic Validation</span>
+          <h2 class="slide-title">Confusion Matrix & Biomarker Odds Drivers</h2>
+          <p class="slide-subtitle">Test cohort evaluation (N = 228) and standardized logistic regression beta weights</p>
         </div>
-        <div class="slide-num-indicator">05 / 07</div>
+        <div class="slide-indexer">05 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas">
-            <div class="hero-img-box" onclick="openChartModal('images/09_confusion_matrix.png', 'Confusion Matrix: 145 True Benign and 68 True Malignant detected on test set.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas">
+            <div class="canvas-card" onclick="openChartModal('images/09_confusion_matrix.png')">
               <img src="images/09_confusion_matrix.png" alt="Confusion Matrix">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 7: Confusion Matrix (93.42% Acc)</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 7: Confusion Matrix (93.42% Accuracy)</div>
             </div>
-            <div class="hero-img-box" onclick="openChartModal('images/14_feature_importance.png', 'Feature Coefficients: Radius Mean and Concave Points are dominant positive drivers.')">
+            <div class="canvas-card" onclick="openChartModal('images/14_feature_importance.png')">
               <img src="images/14_feature_importance.png" alt="Feature Importance">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 8: Standardized Beta Weights (β)</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 8: Standardized Beta Weights (β)</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="insight-pill pill-emerald">
-              <i class="fa-solid fa-check-double"></i> 213 / 228 Correct
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-emerald">
+              <i class="fa-solid fa-check-double"></i> 213 / 228 Validated Correct
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>High Precision & Recall:</strong> Benign precision 0.95 / recall 0.95; Malignant precision 0.91 / recall 0.89.</div>
+              <div><strong>Test Set Breakdown:</strong> 145 True Benign, 68 True Malignant, 7 False Malignant, 8 False Benign.</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Primary Drivers:</strong> `radius_mean` (+2.84) and `concave points_mean` (+2.40) strongly elevate the log-odds of malignancy.</div>
+              <div><strong>Leading Risk Biomarkers:</strong> `radius_mean` (β = +2.84) and `concave points_mean` (β = +2.40) are the strongest independent predictors of malignancy odds.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 6: Diagnostic Gold Standard — ROC Curve (06 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-5">
+    <!-- SLIDE 6: Diagnostic Discriminability — ROC-AUC Analysis (06 / 08) -->
+    <section class="clinical-slide" id="slide-5">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-award"></i> Clinical Reliability</span>
-          <h2 class="slide-title">ROC Curve & Diagnostic Discriminability</h2>
+          <span class="clinical-badge"><i class="fa-solid fa-award"></i> Diagnostic Benchmark</span>
+          <h2 class="slide-title">ROC-AUC Discriminability & Triage Tuning</h2>
           <p class="slide-subtitle">Near-perfect discriminatory capability across all risk thresholds</p>
         </div>
-        <div class="slide-num-indicator">06 / 07</div>
+        <div class="slide-indexer">06 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas single">
-            <div class="hero-img-box" onclick="openChartModal('images/13_roc_curve.png', 'ROC Curve: AUC = 0.9887 confirms exceptional discriminative ability compared to 0.50 random chance.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas single">
+            <div class="canvas-card" onclick="openChartModal('images/13_roc_curve.png')">
               <img src="images/13_roc_curve.png" alt="ROC Curve" style="max-height: 500px;">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 9: Receiver Operating Characteristic (AUC = 0.9887)</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 9: Receiver Operating Characteristic (AUC = 0.9887)</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="stat-box" style="text-align: left; padding: 18px;">
-              <div class="stat-value" style="font-size: 2.7rem;">0.9887</div>
-              <div class="stat-label">Area Under Curve (AUC)</div>
+          <div class="clinical-insights-panel">
+            <div class="clinical-stat-box" style="padding: 16px; text-align: left;">
+              <div class="stat-number" style="font-size: 2.6rem; color: var(--clinical-blue);">0.9887</div>
+              <div class="stat-caption">Area Under ROC Curve (AUC)</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Clinical Certainty:</strong> An AUC of 0.9887 confirms a 98.87% probability that a randomly selected malignant patient will receive a higher risk score than a benign patient.</div>
+              <div><strong>Near-Perfect Separation:</strong> 98.87% probability that a randomly chosen malignant sample is ranked higher than a benign sample.</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Threshold Calibration:</strong> Triage threshold can be adjusted from 0.50 down to 0.35 to virtually eliminate fatal False Negatives.</div>
+              <div><strong>Clinical Screening Protocol:</strong> In high-stakes oncology triage, lowering the operational cutoff from 0.50 to 0.35 minimizes fatal false negatives.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         SLIDE 7: Unsupervised Clustering & Final Takeaway (07 / 07)
-         ====================================================================== -->
-    <section class="slide" id="slide-6">
+    <!-- SLIDE 7: Unsupervised Phenotypic Validation (K-Means & PCA) (07 / 08) -->
+    <section class="clinical-slide" id="slide-6">
       <div class="slide-header">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-cubes"></i> Validation & Defense Summary</span>
-          <h2 class="slide-title">Unsupervised Clustering & Core Takeaways</h2>
-          <p class="slide-subtitle">K-Means (K=2) and 2D PCA confirm inherent biological bimodality</p>
+          <span class="clinical-badge"><i class="fa-solid fa-cubes"></i> Unsupervised Learning</span>
+          <h2 class="slide-title">Unsupervised Phenotypic Validation (K-Means & PCA)</h2>
+          <p class="slide-subtitle">Mathematical confirmation of natural biological bimodality (K=2)</p>
         </div>
-        <div class="slide-num-indicator">07 / 07</div>
+        <div class="slide-indexer">07 / 08</div>
       </div>
       <div class="slide-body">
-        <div class="visual-first-grid">
-          <div class="hero-image-canvas">
-            <div class="hero-img-box" onclick="openChartModal('images/10_kmeans_elbow.png', 'K-Means Elbow: Optimal cluster inflection point confirmed at K=2.')">
+        <div class="clinical-grid">
+          <div class="visual-canvas">
+            <div class="canvas-card" onclick="openChartModal('images/10_kmeans_elbow.png')">
               <img src="images/10_kmeans_elbow.png" alt="K-Means Elbow">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 10: K-Means Elbow Curve</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 10: K-Means Optimal Elbow Curve</div>
             </div>
-            <div class="hero-img-box" onclick="openChartModal('images/11_kmeans_clusters_pca.png', 'PCA Clusters: Unsupervised 2D projection cleanly separates Benign from Malignant.')">
+            <div class="canvas-card" onclick="openChartModal('images/11_kmeans_clusters_pca.png')">
               <img src="images/11_kmeans_clusters_pca.png" alt="PCA Clusters">
-              <span class="img-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="img-caption">Figure 11: 2D PCA Cluster Map</div>
+              <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
+              <div class="figure-tag">Figure 11: 2D PCA Phenotypic Space</div>
             </div>
           </div>
 
-          <div class="insights-card">
-            <div class="insight-pill pill-emerald">
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-blue">
+              <i class="fa-solid fa-chart-pie"></i> Inherent Bimodality
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Unsupervised Concordance:</strong> Without diagnostic labels, K-Means clustering ($K=2$) partitions patients into clusters overlapping true histology by >88%.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Dimensionality Reduction:</strong> PCA Components 1 & 2 capture dominant variance and demonstrate clean topological separation between tumor types.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Clinical Translation & Model Benchmarks (08 / 08) -->
+    <section class="clinical-slide" id="slide-7">
+      <div class="slide-header">
+        <div>
+          <span class="clinical-badge"><i class="fa-solid fa-clipboard-check"></i> Clinical Translation</span>
+          <h2 class="slide-title">Model Comparison & Clinical Recommendations</h2>
+          <p class="slide-subtitle">Benchmarking ensemble models vs interpretability requirements in oncology</p>
+        </div>
+        <div class="slide-indexer">08 / 08</div>
+      </div>
+      <div class="slide-body">
+        <div class="clinical-grid">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="clinical-table-wrapper">
+              <table class="clinical-table">
+                <thead>
+                  <tr>
+                    <th>Classifier Algorithm</th>
+                    <th>Accuracy</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Clinical Interpretability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Random Forest</strong></td>
+                    <td>99.12%</td>
+                    <td>100.0%</td>
+                    <td>97.65%</td>
+                    <td>Low (Black-Box Ensemble)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Decision Tree</strong></td>
+                    <td>97.81%</td>
+                    <td>98.78%</td>
+                    <td>95.29%</td>
+                    <td>Moderate (High Variance Risk)</td>
+                  </tr>
+                  <tr class="highlight">
+                    <td><strong>Logistic Regression (Selected)</strong></td>
+                    <td><strong style="color: var(--clinical-blue);">93.42%</strong></td>
+                    <td>91.00%</td>
+                    <td>89.47%</td>
+                    <td><strong style="color: var(--clinical-emerald);">High (Auditable Odds Ratios)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clinical-card accent-blue" style="padding: 16px;">
+              <div class="card-heading" style="font-size: 0.95rem; margin-bottom: 6px;">
+                <i class="fa-solid fa-scale-balanced"></i> Regulatory & Pathological Imperative
+              </div>
+              <p class="card-body" style="font-size: 0.85rem;">
+                In oncology triage, explainability is essential. Every β coefficient corresponds directly to an auditable odds ratio exp(β<sub>i</sub>), enabling pathologists to verify why a high-risk score was assigned.
+              </p>
+            </div>
+          </div>
+
+          <div class="clinical-insights-panel">
+            <div class="metric-chip chip-emerald">
               <i class="fa-solid fa-graduation-cap"></i> Defense Takeaways
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Inherent Bimodality:</strong> Without diagnostic labels, K-Means naturally partitions tumors into two clusters matching true pathology by >88%.</div>
+              <div><strong>Primary Triage Recommendation:</strong> Deploy as a Decision Support System (DSS) alongside clinical pathology review.</div>
             </div>
 
-            <div class="insight-bullet">
+            <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Core Conclusion:</strong> A compact 7-feature Logistic Regression model delivers clinical-grade accuracy (93.42%, 0.9887 AUC) with complete medical interpretability.</div>
+              <div><strong>Future Multi-Modal Direction:</strong> Validate on multi-institutional external cohorts and integrate CNNs on raw biopsy histology images.</div>
             </div>
 
-            <div style="margin-top: 10px; padding: 12px; background: rgba(0, 242, 254, 0.08); border-radius: 8px; border: 1px solid rgba(0, 242, 254, 0.2); font-size: 0.82rem; color: var(--cyan); text-align: center;">
-              Ready for Viva Voce & Technical Defense
+            <div style="margin-top: 10px; padding: 10px; background: rgba(2, 132, 199, 0.08); border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.2); font-size: 0.8rem; color: var(--clinical-blue-dark); text-align: center; font-weight: 700;">
+              Ready for Examination & Viva Voce Defense
             </div>
           </div>
         </div>
@@ -1276,7 +1362,7 @@
   </main>
 
   <!-- ==========================================================================
-       INTERACTIVE LAB DRAWER (Available in Full Report Mode)
+       INTERACTIVE CLINICAL LAB DRAWER (Available in Report Mode)
        ========================================================================== -->
   <section class="interactive-drawer" id="interactiveExtra">
     
@@ -1284,11 +1370,11 @@
     <div class="simulator-container">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-microchip"></i> Live ML Inference Engine</span>
-          <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--text-main);">Interactive Tumor Malignancy Simulator</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Test real-time Logistic Regression predictions by adjusting cell nucleus features</p>
+          <span class="clinical-badge"><i class="fa-solid fa-microchip"></i> Live ML Inference Engine</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--clinical-navy);">Interactive Malignancy Risk Simulator</h3>
+          <p style="color: var(--clinical-muted); font-size: 0.88rem;">Adjust standardized cytological features to evaluate real-time Logistic Regression predictions</p>
         </div>
-        <button class="nav-btn" onclick="resetSimulator()">
+        <button class="action-btn" onclick="resetSimulator()">
           <i class="fa-solid fa-rotate-left"></i> Reset Defaults
         </button>
       </div>
@@ -1330,21 +1416,21 @@
 
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <div class="sim-gauge">
-            <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase;">
-              Predicted Malignancy Probability P(M|X)
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--clinical-muted); text-transform: uppercase;">
+              Calculated Malignancy Probability P(Malignant | X)
             </div>
-            <div id="simProbText" style="font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: #10b981; margin: 8px 0;">
+            <div id="simProbText" style="font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: #047857; margin: 8px 0;">
               14.2%
             </div>
             <div class="sim-meter">
               <div class="sim-meter-fill" id="simMeterFill" style="width: 14.2%;"></div>
             </div>
             <div id="simDiagBadge" style="margin-top: 10px;">
-              <span class="insight-pill pill-emerald" style="font-size: 0.95rem; padding: 6px 16px;">
+              <span class="metric-chip chip-emerald" style="font-size: 0.92rem; padding: 6px 16px;">
                 <i class="fa-solid fa-circle-check"></i> PREDICTED: BENIGN (Non-Cancerous)
               </span>
             </div>
-            <div id="simClinicalNotes" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; line-height: 1.5;">
+            <div id="simClinicalNotes" style="font-size: 0.85rem; color: var(--clinical-muted); margin-top: 12px; line-height: 1.5;">
               Morphometric features fall comfortably within non-aggressive baseline distributions. Routine monitoring recommended.
             </div>
           </div>
@@ -1353,12 +1439,12 @@
     </div>
 
     <!-- Viva Defense Q&A Flashcards Accordion -->
-    <div class="card" style="margin-bottom: 50px;">
+    <div class="clinical-card" style="margin-bottom: 50px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
-          <span class="slide-badge"><i class="fa-solid fa-chalkboard-user"></i> Oral Defense Guide</span>
-          <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--text-main);">Viva Voce Top Questions & Answers (বাংলায় ব্যাখ্যা)</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Essential defense responses tailored for examiners</p>
+          <span class="clinical-badge"><i class="fa-solid fa-chalkboard-user"></i> Oral Examination Guide</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--clinical-navy);">Viva Voce Technical Defense Q&A (বাংলায় ব্যাখ্যা)</h3>
+          <p style="color: var(--clinical-muted); font-size: 0.88rem;">Key defense responses for clinical and data science examiners</p>
         </div>
       </div>
 
@@ -1385,7 +1471,7 @@
 
         <div class="qa-item">
           <div class="qa-header" onclick="toggleQA(this)">
-            <span>Q3: Logistic Regression এ AUC-ROC এর মান ০.৯৮৮৭ হওয়ার গুরুত্ব কী?</span>
+            <span>Q3: Logistic Regression এ AUC-ROC এর মান ০.৯৮৮৭ হওয়ার ক্লিনিক্যাল গুরুত্ব কী?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="qa-content">
@@ -1396,28 +1482,28 @@
     </div>
   </section>
 
-  <!-- Bottom Floating Dock -->
-  <div class="deck-dock" id="deckDock">
-    <button class="dock-btn" onclick="prevSlide()" title="Previous slide (Left Arrow)">
+  <!-- Bottom Clinical Dock -->
+  <div class="clinical-dock" id="deckDock">
+    <button class="dock-control" onclick="prevSlide()" title="Previous slide (Left Arrow)">
       <i class="fa-solid fa-arrow-left"></i>
     </button>
     
     <div class="dock-counter">
-      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">07</span>
+      <span id="currentSlideNum">01</span> / <span id="totalSlideNum">08</span>
     </div>
 
-    <button class="dock-btn" onclick="nextSlide()" title="Next slide (Right Arrow / Space)">
+    <button class="dock-control" onclick="nextSlide()" title="Next slide (Right Arrow / Space)">
       <i class="fa-solid fa-arrow-right"></i>
     </button>
 
-    <!-- Presenter Rehearsal Stopwatch -->
-    <div class="timer-pill">
+    <!-- Presenter Stopwatch -->
+    <div class="clinical-timer">
       <i class="fa-solid fa-stopwatch"></i>
       <span id="timerDisplay">00:00</span>
-      <button class="timer-btn" onclick="toggleTimer()" id="timerToggleBtn" title="Start/Pause Timer">
+      <button class="timer-action" onclick="toggleTimer()" id="timerToggleBtn" title="Start/Pause Timer">
         <i class="fa-solid fa-play"></i>
       </button>
-      <button class="timer-btn" onclick="resetTimer()" title="Reset Timer">
+      <button class="timer-action" onclick="resetTimer()" title="Reset Timer">
         <i class="fa-solid fa-rotate-right"></i>
       </button>
     </div>
@@ -1427,11 +1513,11 @@
   <div class="modal-overlay" id="chartModal" onclick="closeChartModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <span class="modal-title" id="modalChartTitle">High-Resolution Diagnostic Inspector</span>
+        <span class="modal-title">Clinical High-Resolution Diagnostic Inspector</span>
         <button class="modal-close" onclick="closeChartModal()">&times;</button>
       </div>
       <div class="modal-body">
-        <img id="modalChartImg" src="" alt="Zoomed Chart">
+        <img id="modalChartImg" src="" alt="Zoomed Clinical Chart">
       </div>
     </div>
   </div>
@@ -1440,10 +1526,10 @@
   <div class="grid-overview-modal" id="overviewModal">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%;">
       <div>
-        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--cyan);">Slide Navigator & Deck Overview</h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Click any slide card to jump immediately</p>
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #ffffff;">Clinical Deck Slide Navigator</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">Click any slide card to jump immediately</p>
       </div>
-      <button class="nav-btn" onclick="toggleOverviewModal()" style="font-size: 1.1rem; padding: 10px 18px;">
+      <button class="action-btn" onclick="toggleOverviewModal()" style="font-size: 1.05rem; padding: 9px 18px;">
         <i class="fa-solid fa-xmark"></i> Close (Esc)
       </button>
     </div>
@@ -1453,7 +1539,7 @@
 
   <!-- JavaScript Application Logic -->
   <script>
-    const slides = Array.from(document.querySelectorAll('.slide'));
+    const slides = Array.from(document.querySelectorAll('.clinical-slide'));
     const totalSlides = slides.length;
     let currentSlide = 0;
     let presentationMode = 'deck';
@@ -1552,9 +1638,9 @@
     }
 
     function toggleTheme() {
-      document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme');
       const icon = document.getElementById('themeIcon');
-      if (document.body.classList.contains('light-theme')) {
+      if (document.body.classList.contains('dark-theme')) {
         icon.classList.remove('fa-circle-half-stroke');
         icon.classList.add('fa-sun');
       } else {
@@ -1563,8 +1649,7 @@
       }
     }
 
-    // Lightbox Modal
-    function openChartModal(src, description) {
+    function openChartModal(src) {
       const modal = document.getElementById('chartModal');
       const img = document.getElementById('modalChartImg');
       img.src = src;
@@ -1655,17 +1740,17 @@
       meterFill.style.width = `${pPercent}%`;
 
       if (p >= 0.5) {
-        probText.style.color = '#f43f5e';
+        probText.style.color = '#be123c';
         badge.innerHTML = `
-          <span class="insight-pill pill-rose" style="font-size: 0.95rem; padding: 6px 16px;">
+          <span class="metric-chip chip-rose" style="font-size: 0.92rem; padding: 6px 16px;">
             <i class="fa-solid fa-triangle-exclamation"></i> PREDICTED: MALIGNANT (High Risk)
           </span>
         `;
-        notes.innerText = 'Elevated nuclear radius and severe contour concavities strongly indicate malignant proliferation. Pathological biopsy recommended.';
+        notes.innerText = 'Elevated nuclear radius and severe contour concavities strongly indicate malignant proliferation. Pathological biopsy review recommended.';
       } else {
-        probText.style.color = '#10b981';
+        probText.style.color = '#047857';
         badge.innerHTML = `
-          <span class="insight-pill pill-emerald" style="font-size: 0.95rem; padding: 6px 16px;">
+          <span class="metric-chip chip-emerald" style="font-size: 0.92rem; padding: 6px 16px;">
             <i class="fa-solid fa-circle-check"></i> PREDICTED: BENIGN (Non-Cancerous)
           </span>
         `;
