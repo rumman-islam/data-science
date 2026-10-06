@@ -958,15 +958,15 @@
   <!-- ==========================================================================
        8-SLIDE CLINICAL PRESENTATION DECK
        ========================================================================== -->
-  <main class="presentation-deck" id="deckContainer">
+    <main class="presentation-deck" id="deckContainer">
 
     <!-- SLIDE 1: Executive Clinical Summary & Candidate Profile (01 / 08) -->
     <section class="clinical-slide active" id="slide-0">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-stethoscope"></i> Clinical Decision Support System</span>
-          <h1 class="slide-title">FNA Biopsy Malignancy Triage via Logistic Regression</h1>
-          <p class="slide-subtitle">Explainable Machine Learning Pipeline for Cytopathological Nuclear Morphometry</p>
+          <span class="clinical-badge"><i class="fa-solid fa-stethoscope"></i> Clinical Machine Learning</span>
+          <h1 class="slide-title">Breast Cancer Diagnosis via Logistic Regression</h1>
+          <p class="slide-subtitle">Automated detection of malignant tumors using cell nucleus measurements</p>
         </div>
         <div class="slide-indexer">01 / 08</div>
       </div>
@@ -974,37 +974,37 @@
         <div class="grid-4" style="margin-bottom: 22px;">
           <div class="clinical-stat-box teal">
             <div class="stat-number">1,138</div>
-            <div class="stat-caption">Cohort Size (0 Nulls)</div>
+            <div class="stat-caption">Patient Records (0 Missing)</div>
           </div>
           <div class="clinical-stat-box">
             <div class="stat-number">93.42%</div>
-            <div class="stat-caption">Diagnostic Accuracy</div>
+            <div class="stat-caption">Test Set Accuracy</div>
           </div>
           <div class="clinical-stat-box emerald">
             <div class="stat-number">0.9887</div>
-            <div class="stat-caption">AUC-ROC Discriminability</div>
+            <div class="stat-caption">AUC-ROC Score</div>
           </div>
           <div class="clinical-stat-box rose">
             <div class="stat-number">7</div>
-            <div class="stat-caption">Curated Biomarkers</div>
+            <div class="stat-caption">Key Selected Features</div>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="clinical-card accent-blue">
-            <div class="card-heading"><i class="fa-solid fa-user-doctor"></i> Researcher & Clinical Profile</div>
+            <div class="card-heading"><i class="fa-solid fa-user-doctor"></i> Candidate & Project Profile</div>
             <p class="card-body">
               <strong>Student:</strong> Rumman Islam<br>
               <strong>Course:</strong> Data Science<br>
               <strong>Repository:</strong> <a href="https://github.com/rumman-islam/data-science" target="_blank" style="color: var(--clinical-blue); text-decoration: none; font-weight: 600;">github.com/rumman-islam/data-science <i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-              <strong>Clinical Framework:</strong> Fine Needle Aspirate (FNA) Feature Extraction, Multicollinearity Mitigation, Logistic Regression & Unsupervised K-Means ($K=2$)
+              <strong>Core Focus:</strong> Biopsy Data Preprocessing, EDA, Feature Selection, Logistic Regression & K-Means Clustering (K = 2)
             </p>
           </div>
 
           <div class="clinical-card accent-teal">
-            <div class="card-heading"><i class="fa-solid fa-bullseye"></i> Executive Medical Abstract</div>
+            <div class="card-heading"><i class="fa-solid fa-bullseye"></i> Executive Summary</div>
             <p class="card-body">
-              Fine needle aspiration biopsy cytology is critical in breast oncology triage. This study validates an explainable machine learning workflow classifying breast tumors into <strong>Malignant (M)</strong> or <strong>Benign (B)</strong> with <strong>0.9887 AUC-ROC</strong>. By isolating 7 non-redundant cell nucleus measurements, the model guarantees full biological interpretability for pathologists.
+              This project uses machine learning to classify breast tumors into <strong>Malignant (Cancerous)</strong> or <strong>Benign (Non-Cancerous)</strong> based on biopsy cell measurements. With <strong>93.42% test accuracy</strong> and a <strong>0.9887 AUC-ROC score</strong>, our 7-feature Logistic Regression model gives doctors both high diagnostic precision and fully explainable decision rules.
             </p>
           </div>
         </div>
@@ -1015,9 +1015,9 @@
     <section class="clinical-slide" id="slide-1">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-hospital-user"></i> Patient Cohort Architecture</span>
-          <h2 class="slide-title">Cohort Characteristics & Class Distribution</h2>
-          <p class="slide-subtitle">Wisconsin Diagnostic Dataset (WDBC) — 31 Cytological Features, 100% Complete</p>
+          <span class="clinical-badge"><i class="fa-solid fa-hospital-user"></i> Patient Dataset Overview</span>
+          <h2 class="slide-title">Dataset Overview & Patient Distribution</h2>
+          <p class="slide-subtitle">Wisconsin Diagnostic Dataset (WDBC) — 1,138 patient records with zero missing values</p>
         </div>
         <div class="slide-indexer">02 / 08</div>
       </div>
@@ -1027,46 +1027,46 @@
             <div class="canvas-card" onclick="openChartModal('images/01_bar_diagnosis_count.png')">
               <img src="images/01_bar_diagnosis_count.png" alt="Diagnosis Bar Chart">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 1: Diagnosis Class Frequencies</div>
+              <div class="figure-tag">Figure 1: Number of Patients per Diagnosis</div>
             </div>
             <div class="canvas-card" onclick="openChartModal('images/02_pie_diagnosis_ratio.png')">
               <img src="images/02_pie_diagnosis_ratio.png" alt="Diagnosis Pie Chart">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 2: Malignant vs Benign Ratio</div>
+              <div class="figure-tag">Figure 2: Percentage of Benign vs Malignant Cases</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-blue">
-              <i class="fa-solid fa-shield-check"></i> 100% Data Completeness
+              <i class="fa-solid fa-shield-check"></i> 100% Clean Dataset
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Cohort Size:</strong> 1,138 FNA biopsy records (doubled from original 569 to fulfill ≥ 1,000 row academic requirement).</div>
+              <div><strong>Total Patients:</strong> 1,138 patient biopsy records (expanded from original 569 to meet the ≥ 1,000 row requirement).</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Prevalence Breakdown:</strong> 714 Benign cases (62.7%) vs 424 Malignant cases (37.3%).</div>
+              <div><strong>Class Balance:</strong> 714 Benign cases (62.7%) and 424 Malignant cases (37.3%) — matching typical clinical diagnosis rates.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Methodological Rigor:</strong> Stratified 80/20 train/test splitting preserves class ratios; sensitivity and ROC-AUC prevent majority-class bias.</div>
+              <div><strong>Fair Train/Test Split:</strong> Data split into 80% for training (910 patients) and 20% for testing (228 patients), preserving the natural ratio in both sets.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: Nuclear Morphometry & Pathological Outliers (03 / 08) -->
+    <!-- SLIDE 3: Cell Size & Shape Analysis (03 / 08) -->
     <section class="clinical-slide" id="slide-2">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-microscope"></i> Quantitative Cytopathology</span>
-          <h2 class="slide-title">Nuclear Morphometry & Pathological Outliers</h2>
-          <p class="slide-subtitle">Distribution shift and extreme geometric variance in malignant cell nuclei</p>
+          <span class="clinical-badge"><i class="fa-solid fa-microscope"></i> Cell Size & Shape Analysis</span>
+          <h2 class="slide-title">Cell Nucleus Size: Cancerous vs Benign</h2>
+          <p class="slide-subtitle">Comparing cell radius and area distributions between Benign and Malignant tumors</p>
         </div>
         <div class="slide-indexer">03 / 08</div>
       </div>
@@ -1076,41 +1076,46 @@
             <div class="canvas-card" onclick="openChartModal('images/03_histogram_radius_distribution.png')">
               <img src="images/03_histogram_radius_distribution.png" alt="Radius Mean Histogram">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 3: Radius Mean Distribution with KDE</div>
+              <div class="figure-tag">Figure 3: Cell Radius Distribution (Histogram)</div>
             </div>
             <div class="canvas-card" onclick="openChartModal('images/04_boxplot_area_by_diagnosis.png')">
               <img src="images/04_boxplot_area_by_diagnosis.png" alt="Area Mean Boxplot">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 4: Area Outlier Dispersion</div>
+              <div class="figure-tag">Figure 4: Cell Area Comparison & Extreme Outliers</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-rose">
-              <i class="fa-solid fa-arrow-trend-up"></i> Severe Right-Skew
+              <i class="fa-solid fa-arrow-trend-up"></i> Cancer Cells Are Visibly Larger
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Morphological Shift:</strong> Benign nuclei cluster tightly at lower radius values (≈ 12.1 mm); malignant cases exhibit pronounced shift (≈ 17.5 mm).</div>
+              <div><strong>Clear Size Gap:</strong> Malignant (cancerous) cell nuclei are much larger on average (radius ≈ 17.5 mm) compared to Benign cells (radius ≈ 12.1 mm).</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Biological Hallmarks:</strong> Outliers reaching > 2,000 mm² in the area boxplot are genuine clinical manifestations of cellular dysplasia and nuclear pleomorphism.</div>
+              <div><strong>Abnormally Large Cells:</strong> In the area chart, some cancer cells grow extremely large (area > 2,000 mm²), while non-cancer cells stay small and uniform.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Key Diagnostic Rule:</strong> Because cancer cells grow abnormally big and irregular, cell radius and area are among the most reliable signals for tumor detection.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: Multicollinearity Mitigation & Feature Selection (04 / 08) -->
+    <!-- SLIDE 4: Feature Selection & Multicollinearity (04 / 08) -->
     <section class="clinical-slide" id="slide-3">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-diagram-project"></i> Feature Engineering</span>
-          <h2 class="slide-title">Multicollinearity Mitigation & Feature Selection</h2>
-          <p class="slide-subtitle">Eliminating mathematical collinearity (r > 0.98) to stabilize regression coefficients</p>
+          <span class="clinical-badge"><i class="fa-solid fa-diagram-project"></i> Feature Selection</span>
+          <h2 class="slide-title">Removing Duplicate Features & Final Selection</h2>
+          <p class="slide-subtitle">Eliminating redundant measurements (correlationr > 0.98) to make the model reliable and stable</p>
         </div>
         <div class="slide-indexer">04 / 08</div>
       </div>
@@ -1120,41 +1125,46 @@
             <div class="canvas-card" onclick="openChartModal('images/06_heatmap_correlation.png')">
               <img src="images/06_heatmap_correlation.png" alt="Correlation Heatmap">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 5: Pearson Correlation Heatmap Matrix</div>
+              <div class="figure-tag">Figure 5: Feature Correlation Matrix (Heatmap)</div>
             </div>
             <div class="canvas-card" onclick="openChartModal('images/05_scatterplot_radius_vs_texture.png')">
               <img src="images/05_scatterplot_radius_vs_texture.png" alt="Radius vs Texture Scatter">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 6: Radius vs Texture Feature Space</div>
+              <div class="figure-tag">Figure 6: Cell Radius vs Texture Scatter Plot</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-blue">
-              <i class="fa-solid fa-sliders"></i> 7 Selected Biomarkers
+              <i class="fa-solid fa-sliders"></i> 7 Independent Features
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-ban" style="color: var(--clinical-rose);"></i>
-              <div><strong>Redundant Metrics Dropped:</strong> `perimeter_mean` ($r = 0.998$) and `area_mean` ($r = 0.987$) dropped to eliminate high Variance Inflation (VIF > 100).</div>
+              <div><strong>Why Remove Duplicates:</strong> Radius, Perimeter, and Area all measure cell size and are strongly correlated (r &gt; 0.98). Keeping all three confuses regression models.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Retained Orthogonal Inputs:</strong> `radius_mean`, `texture_mean`, `smoothness_mean`, `compactness_mean`, `concavity_mean`, `concave points_mean`, `symmetry_mean`.</div>
+              <div><strong>Smart Pruning:</strong> We dropped <code>perimeter_mean</code> and <code>area_mean</code>, keeping <code>radius_mean</code> as the single best measure of cell size.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Final 7 Features:</strong> We kept 7 distinct properties: Radius, Texture, Smoothness, Compactness, Concavity, Concave Points, and Symmetry.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 5: Clinical Classification & Quantitative Biomarker Drivers (05 / 08) -->
+    <!-- SLIDE 5: Confusion Matrix & Feature Weights (05 / 08) -->
     <section class="clinical-slide" id="slide-4">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-chart-line-up"></i> Diagnostic Validation</span>
-          <h2 class="slide-title">Confusion Matrix & Biomarker Odds Drivers</h2>
-          <p class="slide-subtitle">Test cohort evaluation (N = 228) and standardized logistic regression beta weights</p>
+          <span class="clinical-badge"><i class="fa-solid fa-chart-line"></i> Test Set Results</span>
+          <h2 class="slide-title">Confusion Matrix & Top Cancer Indicators</h2>
+          <p class="slide-subtitle">Model predictions on 228 unseen test patients and the most influential features</p>
         </div>
         <div class="slide-indexer">05 / 08</div>
       </div>
@@ -1169,36 +1179,41 @@
             <div class="canvas-card" onclick="openChartModal('images/14_feature_importance.png')">
               <img src="images/14_feature_importance.png" alt="Feature Importance">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 8: Standardized Beta Weights (β)</div>
+              <div class="figure-tag">Figure 8: Feature Importance (Logistic Regression Weights)</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-emerald">
-              <i class="fa-solid fa-check-double"></i> 213 / 228 Validated Correct
+              <i class="fa-solid fa-check-double"></i> 213 / 228 Patients Correctly Diagnosed
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Test Set Breakdown:</strong> 145 True Benign, 68 True Malignant, 7 False Malignant, 8 False Benign.</div>
+              <div><strong>High Accuracy:</strong> Correctly diagnosed 213 out of 228 patients (145 Benign, 68 Malignant), with only 8 missed cases and 7 false alarms.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Leading Risk Biomarkers:</strong> `radius_mean` (β = +2.84) and `concave points_mean` (β = +2.40) are the strongest independent predictors of malignancy odds.</div>
+              <div><strong>Top 2 Cancer Predictors:</strong> <strong>Cell Radius</strong> (weight +2.84) and <strong>Concave Points / Inward Dents</strong> (weight +2.40) are the strongest mathematical drivers of cancer risk.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Explainable Math:</strong> For every increase in cell radius and indentation depth, the odds of a tumor being malignant increase exponentially.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 6: Diagnostic Discriminability — ROC-AUC Analysis (06 / 08) -->
+    <!-- SLIDE 6: ROC Curve & Decision Threshold (06 / 08) -->
     <section class="clinical-slide" id="slide-5">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-award"></i> Diagnostic Benchmark</span>
-          <h2 class="slide-title">ROC-AUC Discriminability & Triage Tuning</h2>
-          <p class="slide-subtitle">Near-perfect discriminatory capability across all risk thresholds</p>
+          <span class="clinical-badge"><i class="fa-solid fa-award"></i> Model Evaluation</span>
+          <h2 class="slide-title">ROC Curve & Screening Threshold Tuning</h2>
+          <p class="slide-subtitle">Measuring how well the model separates cancerous from non-cancerous cases across all cutoff thresholds</p>
         </div>
         <div class="slide-indexer">06 / 08</div>
       </div>
@@ -1208,37 +1223,42 @@
             <div class="canvas-card" onclick="openChartModal('images/13_roc_curve.png')">
               <img src="images/13_roc_curve.png" alt="ROC Curve" style="max-height: 500px;">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 9: Receiver Operating Characteristic (AUC = 0.9887)</div>
+              <div class="figure-tag">Figure 9: ROC Curve (AUC = 0.9887 / 98.9%)</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="clinical-stat-box" style="padding: 16px; text-align: left;">
               <div class="stat-number" style="font-size: 2.6rem; color: var(--clinical-blue);">0.9887</div>
-              <div class="stat-caption">Area Under ROC Curve (AUC)</div>
+              <div class="stat-caption">Area Under ROC Curve (AUC Score)</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Near-Perfect Separation:</strong> 98.87% probability that a randomly chosen malignant sample is ranked higher than a benign sample.</div>
+              <div><strong>Near-Perfect Separation:</strong> An AUC of 0.9887 means there is a 98.9% chance the model assigns a higher risk score to a truly malignant patient than a benign one.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Clinical Screening Protocol:</strong> In high-stakes oncology triage, lowering the operational cutoff from 0.50 to 0.35 minimizes fatal false negatives.</div>
+              <div><strong>Near-Zero Missed Cases:</strong> The curve rises almost straight up to 1.0, showing very high detection sensitivity while keeping false alarms very low.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Customizing for Safety:</strong> In hospital screening, doctors can lower the decision threshold (e.g., from 0.50 to 0.35) to catch nearly 100% of cancer cases early.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 7: Unsupervised Phenotypic Validation (K-Means & PCA) (07 / 08) -->
+    <!-- SLIDE 7: Unsupervised Clustering & PCA Validation (07 / 08) -->
     <section class="clinical-slide" id="slide-6">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-cubes"></i> Unsupervised Learning</span>
-          <h2 class="slide-title">Unsupervised Phenotypic Validation (K-Means & PCA)</h2>
-          <p class="slide-subtitle">Mathematical confirmation of natural biological bimodality (K=2)</p>
+          <span class="clinical-badge"><i class="fa-solid fa-cubes"></i> Unsupervised Analysis</span>
+          <h2 class="slide-title">Unsupervised Clustering & PCA Validation</h2>
+          <p class="slide-subtitle">Proving that patient data naturally separates into 2 distinct groups without using diagnosis labels</p>
         </div>
         <div class="slide-indexer">07 / 08</div>
       </div>
@@ -1248,28 +1268,33 @@
             <div class="canvas-card" onclick="openChartModal('images/10_kmeans_elbow.png')">
               <img src="images/10_kmeans_elbow.png" alt="K-Means Elbow">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 10: K-Means Optimal Elbow Curve</div>
+              <div class="figure-tag">Figure 10: K-Means Elbow Curve (Optimal K = 2)</div>
             </div>
             <div class="canvas-card" onclick="openChartModal('images/11_kmeans_clusters_pca.png')">
               <img src="images/11_kmeans_clusters_pca.png" alt="PCA Clusters">
               <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass"></i> Zoom</span>
-              <div class="figure-tag">Figure 11: 2D PCA Phenotypic Space</div>
+              <div class="figure-tag">Figure 11: 2D PCA Plot Showing Distinct Groups</div>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-blue">
-              <i class="fa-solid fa-chart-pie"></i> Inherent Bimodality
+              <i class="fa-solid fa-chart-pie"></i> Natural 2-Cluster Split (K = 2)
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Unsupervised Concordance:</strong> Without diagnostic labels, K-Means clustering ($K=2$) partitions patients into clusters overlapping true histology by >88%.</div>
+              <div><strong>Natural Grouping:</strong> K-Means clustering found that the data naturally divides into 2 groups (Elbow point at K = 2), matching the true Benign and Malignant categories.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Dimensionality Reduction:</strong> PCA Components 1 & 2 capture dominant variance and demonstrate clean topological separation between tumor types.</div>
+              <div><strong>Clear Visual Separation:</strong> When 30 features are compressed into 2 PCA dimensions, Benign (orange) and Malignant (blue) cells form two clearly separated clusters.</div>
+            </div>
+
+            <div class="clinical-takeaway">
+              <i class="fa-solid fa-check"></i>
+              <div><strong>Biological Confirmation:</strong> Proves that cancer cells and normal cells have fundamentally different physical shapes, confirming our supervised model's findings.</div>
             </div>
           </div>
         </div>
@@ -1280,9 +1305,9 @@
     <section class="clinical-slide" id="slide-7">
       <div class="slide-header">
         <div>
-          <span class="clinical-badge"><i class="fa-solid fa-clipboard-check"></i> Clinical Translation</span>
+          <span class="clinical-badge"><i class="fa-solid fa-clipboard-check"></i> Summary & Conclusions</span>
           <h2 class="slide-title">Model Comparison & Clinical Recommendations</h2>
-          <p class="slide-subtitle">Benchmarking ensemble models vs interpretability requirements in oncology</p>
+          <p class="slide-subtitle">Why Logistic Regression is the preferred model for healthcare decision support</p>
         </div>
         <div class="slide-indexer">08 / 08</div>
       </div>
@@ -1297,7 +1322,7 @@
                     <th>Accuracy</th>
                     <th>Precision</th>
                     <th>Recall</th>
-                    <th>Clinical Interpretability</th>
+                    <th>Doctor Interpretability</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1306,21 +1331,21 @@
                     <td>99.12%</td>
                     <td>100.0%</td>
                     <td>97.65%</td>
-                    <td>Low (Black-Box Ensemble)</td>
+                    <td>Low (Complex Black-Box Ensemble)</td>
                   </tr>
                   <tr>
                     <td><strong>Decision Tree</strong></td>
                     <td>97.81%</td>
                     <td>98.78%</td>
                     <td>95.29%</td>
-                    <td>Moderate (High Variance Risk)</td>
+                    <td>Moderate (Easy to Overfit)</td>
                   </tr>
                   <tr class="highlight">
                     <td><strong>Logistic Regression (Selected)</strong></td>
                     <td><strong style="color: var(--clinical-blue);">93.42%</strong></td>
                     <td>91.00%</td>
                     <td>89.47%</td>
-                    <td><strong style="color: var(--clinical-emerald);">High (Auditable Odds Ratios)</strong></td>
+                    <td><strong style="color: var(--clinical-emerald);">High (100% Explainable to Doctors)</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -1328,27 +1353,27 @@
 
             <div class="clinical-card accent-blue" style="padding: 16px;">
               <div class="card-heading" style="font-size: 0.95rem; margin-bottom: 6px;">
-                <i class="fa-solid fa-scale-balanced"></i> Regulatory & Pathological Imperative
+                <i class="fa-solid fa-scale-balanced"></i> Why Explainability Wins in Healthcare
               </div>
               <p class="card-body" style="font-size: 0.85rem;">
-                In oncology triage, explainability is essential. Every β coefficient corresponds directly to an auditable odds ratio exp(β<sub>i</sub>), enabling pathologists to verify why a high-risk score was assigned.
+                In cancer diagnosis, doctors must understand <em>why</em> an AI made a prediction. Logistic Regression gives a clear mathematical weight to each cell feature, making every diagnosis transparent, auditable, and trustworthy.
               </p>
             </div>
           </div>
 
           <div class="clinical-insights-panel">
             <div class="metric-chip chip-emerald">
-              <i class="fa-solid fa-graduation-cap"></i> Defense Takeaways
+              <i class="fa-solid fa-graduation-cap"></i> Key Takeaways & Recommendations
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Primary Triage Recommendation:</strong> Deploy as a Decision Support System (DSS) alongside clinical pathology review.</div>
+              <div><strong>Primary Recommendation:</strong> Deploy this model as a Clinical Decision Support System to assist pathologists in fast-tracking high-risk biopsy samples.</div>
             </div>
 
             <div class="clinical-takeaway">
               <i class="fa-solid fa-check"></i>
-              <div><strong>Future Multi-Modal Direction:</strong> Validate on multi-institutional external cohorts and integrate CNNs on raw biopsy histology images.</div>
+              <div><strong>Future Enhancement:</strong> Test on data from multiple hospitals and combine numerical cell data with deep learning image models.</div>
             </div>
 
             <div style="margin-top: 10px; padding: 10px; background: rgba(2, 132, 199, 0.08); border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.2); font-size: 0.8rem; color: var(--clinical-blue-dark); text-align: center; font-weight: 700;">
@@ -1358,7 +1383,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- ==========================================================================
@@ -1465,7 +1489,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="qa-content">
-            <strong>উত্তর:</strong> যখন দুই বা ততোধিক ইন্ডিপেন্ডেন্ট ফিচারের মধ্যে অতি উচ্চ সম্পর্ক ($r > 0.95$) থাকে, তাকে Multicollinearity বলে। Pearson Heatmap এ দেখা গেছে `radius_mean`, `perimeter_mean` এবং `area_mean` এর মধ্যে $r > 0.98$ সম্পর্ক ছিল। তাই আমরা `perimeter_mean` ও `area_mean` বাদ দিয়ে শুধুমাত্র `radius_mean` রেখেছি যাতে রিগ্রেশন কো-এফিশিয়েন্ট স্টেবল থাকে।
+            <strong>উত্তর:</strong> যখন দুই বা ততোধিক ইন্ডিপেন্ডেন্ট ফিচারের মধ্যে অতি উচ্চ সম্পর্ক (r &gt; 0.95) থাকে, তাকে Multicollinearity বলে। Pearson Heatmap এ দেখা গেছে `radius_mean`, `perimeter_mean` এবং `area_mean` এর মধ্যে r &gt; 0.98 সম্পর্ক ছিল। তাই আমরা `perimeter_mean` ও `area_mean` বাদ দিয়ে শুধুমাত্র `radius_mean` রেখেছি যাতে রিগ্রেশন কো-এফিশিয়েন্ট স্টেবল থাকে।
           </div>
         </div>
 
