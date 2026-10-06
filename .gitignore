@@ -51,3 +51,4 @@ MANIFEST
 # Temporary and Scratch Files
 *.tmp
 lab_report_temp.html
+*copy.html
