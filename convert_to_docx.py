@@ -33,7 +33,9 @@ def create_docx_report():
     font.size = Pt(11)
     font.color.rgb = RGBColor(0x22, 0x22, 0x22)
 
-    with open('LAB_REPORT.md', 'r', encoding='utf-8') as f:
+    input_file = 'DS_LAB_REPORT.md' if os.path.exists('DS_LAB_REPORT.md') else 'LAB_REPORT.md'
+    output_file = 'DS_LAB_REPORT.docx' if 'DS_' in input_file else 'LAB_REPORT.docx'
+    with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
     in_code_block = False
@@ -209,8 +211,8 @@ def create_docx_report():
     if in_table:
         flush_table(table_lines)
 
-    doc.save('LAB_REPORT.docx')
-    print("DOCX successfully generated: LAB_REPORT.docx")
+    doc.save(output_file)
+    print(f"DOCX successfully generated: {output_file}")
 
 if __name__ == '__main__':
     create_docx_report()

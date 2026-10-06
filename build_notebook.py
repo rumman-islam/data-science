@@ -4,12 +4,12 @@ nb = nbf.v4.new_notebook()
 cells = []
 
 # Title & Metadata
-cells.append(nbf.v4.new_markdown_cell(r"""# Data Warehousing & Data Mining Lab Report
+cells.append(nbf.v4.new_markdown_cell(r"""# Data Science Lab Report
 ## Analysis of Kaggle Breast Cancer Wisconsin Diagnostic Dataset
 
 **Experiment Title:** Breast Cancer Diagnostic Preprocessing, Exploratory Data Analysis, and Data Mining Analysis  
-**Student Name:** Aduri  
-**Course:** Data Warehousing and Data Mining Lab  
+**Student Name:** Rumman Islam  
+**Course:** Data Science  
 **Dataset:** [Kaggle Breast Cancer Dataset](https://www.kaggle.com/datasets/mehmetisik/breast-cancercsv) (1,138 Augmented Records)  
 **Date:** August 2026  
 
@@ -352,7 +352,7 @@ cells.append(nbf.v4.new_markdown_cell(r"""## 9. Results and Discussion
 
 ## 10. Conclusion
 ### 10.1 What Was Learned
-Through this lab experiment, we successfully implemented a complete medical data warehousing and mining workflow:
+Through this lab experiment, we successfully implemented a complete medical data science and machine learning workflow:
 - Preprocessing and augmenting Kaggle's Breast Cancer dataset.
 - Performing EDA and multi-dimensional diagnostic visualization.
 - Training and evaluating Supervised Classification, Unsupervised Clustering, and Predictive Linear Regression models.

@@ -2,7 +2,7 @@
 
 **Title:** Breast Cancer Diagnosis Using Logistic Regression  
 **Dataset:** Breast Cancer Wisconsin Diagnostic Dataset  
-**Student:** Rumman Khatun  
+**Student:** Rumman Islam  
 **Tool:** Python 3 · Pandas · Scikit-learn · Seaborn · Matplotlib · Jupyter  
 **Date:** September 2026
 

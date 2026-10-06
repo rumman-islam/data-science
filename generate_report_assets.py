@@ -297,4 +297,4 @@ Multiple Linear Regression:
 with open('analysis_summary.txt', 'w') as f:
     f.write(summary_text)
 
-print("Aduri Analysis Assets & Metrics Generated Successfully!")
+print("Rumman Islam Analysis Assets & Metrics Generated Successfully!")

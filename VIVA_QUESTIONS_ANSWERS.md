@@ -1,10 +1,10 @@
-# Breast Cancer Diagnostic Data Mining Lab Viva Guide
-## Comprehensive Top 20 Interview Questions & Answers (বাংলায় ব্যাখ্যা - Aduri)
+# Breast Cancer Diagnostic Data Science Viva Guide
+## Comprehensive Top 20 Interview Questions & Answers (বাংলায় ব্যাখ্যা - Rumman Islam)
 
 **Dataset:** Kaggle Breast Cancer Wisconsin Diagnostic Dataset (1,138 Augmented Records)  
-**Student Name:** Aduri  
+**Student Name:** Rumman Islam  
 **Topic:** Healthcare Data Preprocessing, EDA, Classification, Clustering, Regression & Diagnostic Evaluation  
-**Target:** Data Warehousing and Data Mining Lab Defense / Viva Exam  
+**Target:** Data Science Lab Defense / Viva Exam  
 
 ---
 
@@ -126,7 +126,7 @@
 
 ---
 
-## 🎓 Viva Quick Reference Sheet (Aduri)
+## 🎓 Viva Quick Reference Sheet (Rumman Islam)
 
 | Diagnostic Metric | Key Value / Result |
 | :--- | :--- |

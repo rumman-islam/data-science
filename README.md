@@ -113,7 +113,6 @@ data-science/
 ├── DS_LAB_REPORT.md                # Full academic laboratory report (Markdown)
 ├── DS_LAB_REPORT.docx              # Formatted Microsoft Word lab report
 ├── DS_LAB_REPORT.pdf               # Print-ready academic PDF report
-├── LAB_REPORT.md                   # Data Warehousing & Data Mining lab document
 ├── VIVA_QUESTIONS_ANSWERS.md       # Comprehensive Viva Voce defense Q&A guide (Bilingual)
 ├── analysis_summary.txt            # Analytical summary and statistical metrics
 ├── build_notebook.py               # Notebook builder automation
@@ -146,6 +145,6 @@ jupyter notebook lab_report_breast_cancer.ipynb
 ---
 
 ## 👤 Author & Lab Defense
-- **Author:** Rumman Islam / Rumman Khatun (Aduri)
-- **Course:** Data Warehousing, Data Mining & Data Science Lab
+- **Author:** Rumman Islam
+- **Course:** Data Science
 - **GitHub:** [@rumman-islam](https://github.com/rumman-islam)

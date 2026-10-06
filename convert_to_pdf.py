@@ -2,8 +2,11 @@ import markdown
 from xhtml2pdf import pisa
 import re
 
+import os
 # Read Markdown report
-with open('LAB_REPORT.md', 'r', encoding='utf-8') as f:
+input_file = 'DS_LAB_REPORT.md' if os.path.exists('DS_LAB_REPORT.md') else 'LAB_REPORT.md'
+output_pdf_path = 'DS_LAB_REPORT.pdf' if 'DS_' in input_file else 'LAB_REPORT.pdf'
+with open(input_file, 'r', encoding='utf-8') as f:
     md_content = f.read()
 
 # Convert Markdown to HTML with extensions
@@ -111,7 +114,6 @@ html_style = """
 full_html = f"<!DOCTYPE html><html><head><meta charset='utf-8'>{html_style}</head><body>{html_body}</body></html>"
 
 # Convert HTML to PDF using xhtml2pdf
-output_pdf_path = "LAB_REPORT.pdf"
 with open(output_pdf_path, "wb") as pdf_file:
     pisa_status = pisa.CreatePDF(full_html, dest=pdf_file)
 
