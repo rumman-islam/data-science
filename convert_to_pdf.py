@@ -96,8 +96,7 @@ html_style = """
         padding: 0;
     }
     img {
-        max-width: 500px;
-        width: 100%;
+        max-width: 480pt;
         display: block;
         margin: 12px auto;
         text-align: center;

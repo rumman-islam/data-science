@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE 4114 Academic Research Poster | Breast Cancer Diagnosis & Machine Learning</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --navy-dark: #0f172a;
+      --navy-card: #1e293b;
+      --blue-primary: #0284c7;
+      --blue-light: #38bdf8;
+      --blue-bg: #f0f9ff;
+      --white: #ffffff;
+      --bg-canvas: #f1f5f9;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --crimson: #e11d48;
+      --emerald: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.45;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Print / Action Toolbar */
+    .toolbar {
+      max-width: 1700px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    }
+    .toolbar h2 {
+      font-size: 16px;
+      color: var(--navy-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--blue-primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0369a1;
+    }
+    .btn-secondary {
+      background: var(--navy-dark);
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: #1e293b;
+    }
+
+    /* Poster Canvas (Standard 48x36 Landscape Aspect Ratio) */
+    .poster-container {
+      max-width: 1700px;
+      margin: 0 auto;
+      background: var(--bg-canvas);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Top Banner */
+    .poster-header {
+      background: var(--navy-dark);
+      color: white;
+      padding: 32px 40px;
+      border-top: 6px solid var(--blue-light);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+    .course-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--blue-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .poster-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .poster-subtitle {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .meta-pills strong {
+      color: white;
+    }
+    .header-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 140px);
+      gap: 12px;
+    }
+    .h-metric-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 12px 14px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .h-metric-card .num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--blue-light);
+      line-height: 1.1;
+    }
+    .h-metric-card .num.emerald { color: var(--emerald); }
+    .h-metric-card .lbl {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 3-Column Poster Grid */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 24px;
+    }
+    .poster-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Card Panels */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .card-header {
+      background: var(--navy-dark);
+      color: white;
+      padding: 10px 18px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-header .sec-tag {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--blue-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12.5px;
+      color: #334155;
+    }
+    .card-body h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--blue-primary);
+    }
+    .card-body p {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+    .card-body ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-body li {
+      line-height: 1.4;
+    }
+
+    /* Image Containers */
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .poster-img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      object-fit: contain;
+    }
+    .img-caption {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* Tables */
+    .poster-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+    .poster-table th {
+      background: var(--navy-dark);
+      color: white;
+      padding: 6px 10px;
+      font-weight: 700;
+      text-align: left;
+    }
+    .poster-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .poster-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .poster-table .highlight {
+      font-weight: 700;
+      color: var(--blue-primary);
+    }
+
+    /* Workflow Pills */
+    .workflow-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+    .flow-step i {
+      color: var(--blue-primary);
+      width: 16px;
+    }
+
+    /* Highlight Banner */
+    .highlight-strip {
+      background: var(--blue-bg);
+      border-left: 4px solid var(--blue-primary);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy-dark);
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .poster-container {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      @page {
+        size: A3 landscape;
+        margin: 8mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar -->
+  <div class="toolbar">
+    <h2>
+      <i class="fa-solid fa-graduation-cap" style="color: #0284c7;"></i>
+      CSE 4114: Introduction to Data Science Lab — Official Academic Research Poster
+    </h2>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print Poster / Save as PDF
+      </button>
+      <a href="DS_LAB_PRESENTATION.pptx" class="btn btn-secondary">
+        <i class="fa-solid fa-file-powerpoint"></i> Download Slides (.pptx)
+      </a>
+      <a href="DS_LAB_REPORT.pdf" class="btn btn-secondary">
+        <i class="fa-solid fa-file-pdf"></i> Download Full Report (.pdf)
+      </a>
+    </div>
+  </div>
+
+  <!-- Poster Canvas -->
+  <div class="poster-container">
+
+    <!-- Header Banner -->
+    <header class="poster-header">
+      <div>
+        <div class="course-badge">
+          <i class="fa-solid fa-microscope"></i> Department of Computer Science & Engineering • Course Code: CSE 4114
+        </div>
+        <h1 class="poster-title">
+          Breast Cancer Diagnosis & Morphometric Modeling Using Logistic Regression
+        </h1>
+        <p class="poster-subtitle">
+          Complete Data Science Workflow: Preprocessing, 8-D EDA, Supervised Classification Benchmarks, K-Means Clustering & Perimeter Regression
+        </p>
+        <div class="meta-pills">
+          <span><i class="fa-solid fa-user-graduate"></i> Student: <strong>Rumman Islam</strong></span>
+          <span><i class="fa-solid fa-database"></i> Dataset: <strong>Wisconsin Diagnostic (WDBC, N = 1,138)</strong></span>
+          <span><i class="fa-brands fa-python"></i> Tools: <strong>Python 3 · Scikit-learn · Pandas · Seaborn</strong></span>
+          <span><i class="fa-solid fa-calendar-check"></i> Date: <strong>September 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="header-metrics">
+        <div class="h-metric-card">
+          <div class="num">93.42%</div>
+          <div class="lbl">LR Test Accuracy</div>
+        </div>
+        <div class="h-metric-card">
+          <div class="num emerald">0.9887</div>
+          <div class="lbl">AUC-ROC Score</div>
+        </div>
+        <div class="h-metric-card">
+          <div class="num">0.9962</div>
+          <div class="lbl">R² Regression</div>
+        </div>
+        <div class="h-metric-card">
+          <div class="num">1,138</div>
+          <div class="lbl">Patient Records</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3-Column Poster Layout -->
+    <main class="poster-grid">
+
+      <!-- COLUMN 1: Problem, Dataset, Cleaning & EDA -->
+      <section class="poster-col">
+
+        <!-- 1. Problem Statement & Workflow -->
+        <div class="card">
+          <div class="card-header">
+            <span>1. PROBLEM STATEMENT & DATA SCIENCE WORKFLOW</span>
+            <span class="sec-tag">SEC 2.1</span>
+          </div>
+          <div class="card-body">
+            <h4>Clinical Problem Context</h4>
+            <p>
+              Breast cancer is one of the most prevalent and life-threatening malignancies globally. Early detection drastically elevates survival rates (>98% 5-year localized survival). Manual examination of Fine Needle Aspirate (FNA) biopsies is tedious, subjective, and prone to diagnostic fatigue.
+            </p>
+            <div class="highlight-strip">
+              <strong>Research Question:</strong> Can Logistic Regression classify breast tumor malignancy with high precision and explainable feature weights from cell nucleus morphometrics?
+            </div>
+            <h4>Complete CSE 4114 Workflow Pipeline</h4>
+            <div class="workflow-flow">
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Problem Definition & Dataset Acquisition (Kaggle WDBC)</div>
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Data Preprocessing (0 Missing, 1,138 Augmented Rows, StandardScaler)</div>
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Exploratory Data Analysis & 8-D Statistical Visualization</div>
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Feature Engineering & Selection (VIF Collinearity Elimination)</div>
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Machine Learning Suite (Classification, Clustering, Regression)</div>
+              <div class="flow-step"><i class="fa-solid fa-circle-check"></i> Model Evaluation & Clinical Decision Boundary Tuning</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Dataset Description & Ingestion -->
+        <div class="card">
+          <div class="card-header">
+            <span>2. DATASET SPECIFICATIONS & PREPROCESSING</span>
+            <span class="sec-tag">SEC 2.2 - 2.4</span>
+          </div>
+          <div class="card-body">
+            <h4>Data Characteristics & Cleaning</h4>
+            <table class="poster-table">
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Experimental Configuration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Dataset Source</td><td>Kaggle (Breast Cancer Wisconsin Diagnostic)</td></tr>
+                <tr><td>Original / Augmented</td><td>569 Samples → 1,138 Records (≥1,000 Lab Quota)</td></tr>
+                <tr><td>Features & Target</td><td>31 Columns (30 Nuclear Continuous + 1 Target)</td></tr>
+                <tr><td>Target Encoding</td><td>diagnosis: Malignant (M = 1) / Benign (B = 0)</td></tr>
+                <tr><td>Missing Records</td><td>0 Missing Values (100% Data Integrity)</td></tr>
+                <tr><td>Class Balance</td><td>714 Benign (62.7%) vs 424 Malignant (37.3%)</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 6px;">
+              <strong>Preprocessing:</strong> Augmented to 1,138 rows; StandardScaler normalized all numerical attributes (μ = 0, σ = 1). Outlier analysis via IQR boxplots identified extreme nuclear area in malignant cases (>2,000 mm²), preserved as legitimate pathological biomarkers.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Key EDA Visualizations -->
+        <div class="card">
+          <div class="card-header">
+            <span>3. EXPLORATORY DATA VISUALIZATIONS</span>
+            <span class="sec-tag">SEC 2.5 - 2.6</span>
+          </div>
+          <div class="card-body">
+            <div class="img-grid-2">
+              <div>
+                <img src="images/01_bar_diagnosis_count.png" alt="Class Distribution" class="poster-img">
+                <div class="img-caption">Fig 1: Class Distribution (N=1,138)</div>
+              </div>
+              <div>
+                <img src="images/03_histogram_radius_distribution.png" alt="Radius Mean" class="poster-img">
+                <div class="img-caption">Fig 2: Radius Mean Distribution</div>
+              </div>
+            </div>
+            <div class="img-grid-2">
+              <div>
+                <img src="images/04_boxplot_area_by_diagnosis.png" alt="Area Boxplot" class="poster-img">
+                <div class="img-caption">Fig 3: Outlier Area Boxplot</div>
+              </div>
+              <div>
+                <img src="images/08_line_feature_profile.png" alt="Feature Profile" class="poster-img">
+                <div class="img-caption">Fig 4: Nuclear Morphometric Profile</div>
+              </div>
+            </div>
+            <p style="font-size: 11.5px; color: var(--navy-dark); font-weight: 600;">
+              Key Findings: Malignant cell nuclei display marked right-skewness, significantly higher mean values across all 10 features, and heavy area tails.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- COLUMN 2: Feature Engineering & Machine Learning Models -->
+      <section class="poster-col">
+
+        <!-- 4. Feature Engineering & Selection -->
+        <div class="card">
+          <div class="card-header">
+            <span>4. FEATURE ENGINEERING & SELECTION</span>
+            <span class="sec-tag">SEC 2.7 - 2.8</span>
+          </div>
+          <div class="card-body">
+            <h4>Multicollinearity Removal (VIF Analysis)</h4>
+            <p>
+              Features were categorized into 3 groups (Mean, SE, Worst). Bivariate Pearson correlation revealed severe multicollinearity between geometric metrics:
+              <strong>radius_mean ↔ perimeter_mean (r > 0.98)</strong> and <strong>radius_mean ↔ area_mean (r > 0.98)</strong>.
+            </p>
+            <img src="images/06_heatmap_correlation.png" alt="Heatmap Matrix" class="poster-img" style="max-height: 220px;">
+            <div class="img-caption">Fig 5: Diagnostic Feature Correlation Heatmap Matrix</div>
+            <p>
+              <strong>Selection:</strong> Dropped perimeter_mean and area_mean. Selected <strong>7 independent predictors:</strong> radius_mean, texture_mean, smoothness_mean, compactness_mean, concavity_mean, concave points_mean, and symmetry_mean.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. Machine Learning Models -->
+        <div class="card">
+          <div class="card-header">
+            <span>5. MACHINE LEARNING MODEL DEVELOPMENT</span>
+            <span class="sec-tag">SEC 2.9</span>
+          </div>
+          <div class="card-body">
+            <h4>Tri-Faceted Modeling Suite (CSE 4114)</h4>
+            <ul>
+              <li>
+                <strong>1. Supervised Classification (Primary):</strong> Logistic Regression with Sigmoid link function:
+                <code style="background: #e2e8f0; padding: 2px 4px; border-radius: 4px;">P(Y=1|X) = 1 / (1 + e^-z)</code>. Outputs probability score and clinically transparent beta weights.
+              </li>
+              <li>
+                <strong>2. Supervised Benchmarks:</strong> Decision Tree (max_depth=5) & Random Forest (100 estimators) trained on stratified 80/20 train/test splits.
+              </li>
+              <li>
+                <strong>3. Unsupervised Clustering:</strong> K-Means (K=2) evaluated with Elbow Curve & Silhouette score (~0.41) demonstrating distinct patient groups without labels.
+              </li>
+              <li>
+                <strong>4. Predictive Regression:</strong> Multiple Linear Regression predicting continuous tumor perimeter from radius, area, and texture.
+              </li>
+            </ul>
+
+            <div class="img-grid-2">
+              <div>
+                <img src="images/14_feature_importance.png" alt="Feature Importance" class="poster-img">
+                <div class="img-caption">Fig 6: Logistic Regression Beta Weights</div>
+              </div>
+              <div>
+                <img src="images/12_regression_actual_vs_pred.png" alt="Regression Fit" class="poster-img">
+                <div class="img-caption">Fig 7: Linear Regression (R² = 0.9962)</div>
+              </div>
+            </div>
+            <p style="font-size: 11px; color: var(--navy-dark); font-weight: 600;">
+              Biomarker Weighting: concave points_mean (+2.40) and radius_mean (+2.84) exert the strongest positive influence on malignancy log-odds.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- COLUMN 3: Evaluation, Results & Discussion -->
+      <section class="poster-col">
+
+        <!-- 6. Model Evaluation & Comparison -->
+        <div class="card">
+          <div class="card-header">
+            <span>6. MODEL EVALUATION & COMPARISON</span>
+            <span class="sec-tag">SEC 2.10</span>
+          </div>
+          <div class="card-body">
+            <h4>Benchmark Performance on Test Set (N = 228)</h4>
+            <table class="poster-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Accuracy</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>F1-Score</th>
+                  <th>Clinical Trait</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Decision Tree</td><td>97.81%</td><td>98.78%</td><td>95.29%</td><td>97.01%</td><td>Hierarchical Rules</td></tr>
+                <tr><td>Random Forest</td><td>99.12%</td><td>100.00%</td><td>97.65%</td><td>98.81%</td><td>Ensemble Benchmark</td></tr>
+                <tr class="highlight"><td>Logistic Regression</td><td>93.42%</td><td>90.67%</td><td>89.47%</td><td>90.07%</td><td>Explainable Weights</td></tr>
+              </tbody>
+            </table>
+
+            <div class="img-grid-2">
+              <div>
+                <img src="images/09_confusion_matrix.png" alt="Confusion Matrix" class="poster-img">
+                <div class="img-caption">Fig 8: Confusion Matrix (Accuracy: 93.42%)</div>
+              </div>
+              <div>
+                <img src="images/13_roc_curve.png" alt="ROC Curve" class="poster-img">
+                <div class="img-caption">Fig 9: ROC Curve (AUC = 0.9887)</div>
+              </div>
+            </div>
+            <p style="font-size: 11px;">
+              <strong>Diagnostic Validation:</strong> Confusion matrix shows TN=145, TP=68, FN=8. Near-perfect AUC of 0.9887 proves the model discriminates cancerous tumors 98.9% of the time, allowing threshold tuning down to 0.35 to eliminate false negatives.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Results, Discussion & Conclusions -->
+        <div class="card">
+          <div class="card-header">
+            <span>7. RESULTS, DISCUSSION & CONCLUSION</span>
+            <span class="sec-tag">SEC 2.11</span>
+          </div>
+          <div class="card-body">
+            <h4>Key Findings & Clinical Takeaways</h4>
+            <ul>
+              <li>
+                <strong>1. Biomarker Dominance:</strong> Cellular contour indentations (concave points_mean) and nuclear enlargement (radius_mean) are the top physical drivers of malignancy.
+              </li>
+              <li>
+                <strong>2. Clinical Interpretability:</strong> While Random Forest achieves 99.12% accuracy, Logistic Regression is preferred in clinical validation pipelines because its linear weights allow oncologists to explain every diagnostic decision.
+              </li>
+              <li>
+                <strong>3. Linear Regression Accuracy:</strong> Perimeter prediction achieved R² = 0.9962 and MAE = 0.81 mm, validating tight geometric consistency across FNA biopsies.
+              </li>
+              <li>
+                <strong>4. Project Limitations:</strong> Synthetic duplication was used to satisfy the 1,000-row lab quota. Mild class imbalance exists (62.7% vs 37.3%). External hospital cross-validation is needed before clinical deployment.
+              </li>
+              <li>
+                <strong>5. Future Scope:</strong> Implement SMOTE resampling, evaluate non-linear Support Vector Machines (SVM), and deploy CNN computer vision on raw microscopy tiles.
+              </li>
+            </ul>
+
+            <h4>Academic References (CSE 4114)</h4>
+            <p style="font-size: 10px; color: var(--text-muted);">
+              [1] Street et al. (1993). Nuclear feature extraction for breast tumor diagnosis. IS&T/SPIE.<br>
+              [2] Kaggle WDBC Dataset (mehmetisik/breast-cancercsv).<br>
+              [3] Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python. JMLR 12.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
